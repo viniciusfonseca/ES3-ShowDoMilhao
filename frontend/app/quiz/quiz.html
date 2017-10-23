@@ -1,0 +1,187 @@
+<md-content layout-padding>
+    <div layout="row">
+        <div flex="20">
+            <md-card>
+                <md-subheader class="md-no-sticky">Jogador:</md-subheader>
+                <md-list flex>
+                    <md-list-item class="md-3-line" ng-click="null">
+                        <img ng-src="components/img/avatar/{{user.avatar}}"
+                             class="md-avatar"
+                             alt="{{item.avatar}}"/>
+
+                        <div class="md-list-item-text" layout="column">
+                            <div class="md-headline">{{ user.name }}</div>
+                            <div class="md-subhead">
+                                <md-icon style="color: #ffd012">
+                                    <i class="material-icons">star_rate</i>
+                                </md-icon>
+                                {{ user.score }}
+                            </div>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-card>
+            <md-card>
+                <md-subheader class="md-no-sticky">Objetivos:</md-subheader>
+                <md-list>
+                    <md-list-item class="noright">
+                        <p>America do Sul</p>
+                        <md-icon style="color: #ffd012">
+                            <i class="material-icons">star_rate</i>
+                        </md-icon><md-icon style="color: #ffd012">
+                            <i class="material-icons">star_rate</i>
+                        </md-icon><md-icon style="color: #ffd012">
+                            <i class="material-icons">star_rate</i>
+                        </md-icon><md-icon style="color: #ffd012">
+                            <i class="material-icons">star_rate</i>
+                        </md-icon><md-icon style="color: #ffd012">
+                            <i class="material-icons">star_rate</i>
+                        </md-icon>
+                    </md-list-item>
+
+                    <md-list-item class="noright">
+                        <p>America do Norte</p>
+                        <md-icon style="color: #ffd012">
+                            <i class="material-icons">star_rate</i>
+                        </md-icon><md-icon style="color: #ffd012">
+                        <i class="material-icons">star_rate</i>
+                    </md-icon><md-icon style="color: #ffd012">
+                        <i class="material-icons">star_rate</i>
+                    </md-icon><md-icon style="">
+                        <i class="material-icons">star_rate</i>
+                    </md-icon><md-icon style="color: #ffd012">
+                        <i class="material-icons">star_rate</i>
+                    </md-icon>
+                    </md-list-item>
+                    <md-list-item class="noright">
+                        <p>Europa</p>
+                        <md-icon style="color: #ffd012">
+                            <i class="material-icons">star_rate</i>
+                        </md-icon><md-icon style="color: #ffd012">
+                        <i class="material-icons">star_rate</i>
+                    </md-icon><md-icon style="color: #ffd012">
+                        <i class="material-icons">star_rate</i>
+                    </md-icon>
+                    </md-list-item>
+                    <md-list-item class="noright">
+                        <p>Africa</p>
+                        <md-icon style="color: #ffd012">
+                            <i class="material-icons">star_rate</i>
+                        </md-icon><md-icon style="color: #ffd012">
+                        <i class="material-icons">star_rate</i>
+                    </md-icon><md-icon style="color: #ffd012">
+                        <i class="material-icons">star_rate</i>
+                    </md-icon><md-icon style="">
+                        <i class="material-icons">star_rate</i>
+                    </md-icon><md-icon style="color: #ffd012">
+                        <i class="material-icons">star_rate</i>
+                    </md-icon>
+                    </md-list-item>
+                    <md-list-item class="noright">
+                        <p>Europa</p>
+                        <md-icon style="color: #ffd012">
+                            <i class="material-icons">star_rate</i>
+                        </md-icon><md-icon style="color: #ffd012">
+                        <i class="material-icons">star_rate</i>
+                    </md-icon><md-icon style="color: #ffd012">
+                        <i class="material-icons">star_border</i>
+                    </md-icon>
+                    </md-list-item>
+                </md-list>
+            </md-card>
+        </div>
+        <div flex="60" style="margin-left: 10px">
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Pergunta:</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <p>{{quiz.question}}</p>
+                    <md-radio-group
+                            layout-margin
+                            ng-model="answer.alternative">
+                        <md-radio-button ng-repeat="item in quiz.alternatives"
+                                         ng-value="item.alternative_ID" class="md-primary">
+                            {{item.alternative}}
+                        </md-radio-button>
+                    </md-radio-group>
+                </md-card-content>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button ng-click="submit()" class="md-raised md-primary">Responder</md-button>
+                </md-card-actions>
+            </md-card>
+            <md-card>
+                <md-card-content>
+                    <div layout="row" layout-align="space-around center">
+                        <div>
+                            <p class="md-caption">Cartas</p>
+                            <img
+                                    ng-click="showAdvanced($event)"
+                                    src="components/img/help/cartas.png" alt="">
+
+                            <p>
+                                <md-icon style="color: #ffd012">
+                                    <i class="material-icons">star_rate</i>
+                                </md-icon>
+                                {{helpScore.card}}
+                            </p>
+                        </div>
+                        <div>
+                            <p class="md-caption">Pular</p>
+                            <img
+                                    ng-click=helpJump()
+                                    src="components/img/help/pular.png" alt="">
+
+                            <p>
+                                <md-icon style="color: #ffd012">
+                                    <i class="material-icons">star_rate</i>
+                                </md-icon>
+                                {{helpScore.jump}}
+                            </p>
+                        </div>
+                        <div>
+                            <p class="md-caption">Opinião</p>
+                            <img
+                                    ng-click="helpOpinion()"
+                                    src="components/img/help/opiniao.png" alt="">
+
+                            <p>
+                                <md-icon style="color: #ffd012">
+                                    <i class="material-icons">star_rate</i>
+                                </md-icon>
+                                {{helpScore.opinion}}
+                            </p>
+                        </div>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </div>
+        <div flex>
+            <md-card>
+                <img src="components/img/world-map.svg" alt="">
+            </md-card>
+            <md-card>
+                <md-subheader class="md-no-sticky">Ranking: {{ranked.continent}}</md-subheader>
+                <md-list flex>
+                    <md-list-item class="md-3-line" ng-repeat="item in ranked.scores" ng-click="null">
+                        <img ng-src="components/img/avatar/{{item.avatar}}?{{$index}}" class="md-avatar"
+                             alt="{{item.avatar}}"/>
+
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{ item.name }}</h3>
+                            <h4>
+                                <md-icon style="color: #ffd012">
+                                    <i class="material-icons">star_rate</i>
+                                </md-icon>
+                                {{ item.score }}
+                            </h4>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-card>
+        </div>
+    </div>
+</md-content>
+                                                                                                                                                                                               

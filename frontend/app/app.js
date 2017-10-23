@@ -11,6 +11,7 @@ angular.module('myApp', [
   'myApp.signUp',
   'myApp.signIn',
   'myApp.map',
+  'myApp.quiz',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

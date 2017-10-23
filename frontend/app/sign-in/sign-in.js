@@ -13,4 +13,7 @@ angular.module('myApp.signIn', ['ngRoute'])
 
     .controller('signInCtrl', function($scope) {
 
+        $scope.submit = function(){
+            alert(JSON.stringify($scope.user));
+        }
     });

@@ -35,4 +35,8 @@ angular.module('myApp.signUp', ['ngRoute'])
             "balloon(4).png",
             "balloon(5).png"
         ];
+
+        $scope.submit = function(){
+            alert(JSON.stringify($scope.user));
+        }
     });
