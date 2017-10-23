@@ -10,6 +10,7 @@ angular.module('myApp', [
   'myApp.view2',
   'myApp.signUp',
   'myApp.signIn',
+  'myApp.map',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
