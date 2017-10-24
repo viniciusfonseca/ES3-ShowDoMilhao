@@ -110,7 +110,41 @@ angular.module('myApp.quiz', ['ngRoute'])
             user_ID: 1,
             name: "Beatriz Oliveira ",
             avatar: "download(1).png",
-            score: "233"
+            score: "233",
+            continents: [
+                {
+                    continent:'Africa',
+                    goal:5,
+                    score:3
+                },
+                {
+                    continent:'America do Sul',
+                    goal:5,
+                    score:2
+                },
+                {
+                    continent:'America do Norte',
+                    goal:5,
+                    score:2
+                },
+                {
+                    continent:'Asia',
+                    goal:5,
+                    score:5
+                },
+                {
+                    continent:'Europa',
+                    goal:5,
+                    score:4
+
+                },
+                {
+                    continent:'Oceania',
+                    goal:5,
+                    score:2
+                }
+
+            ]
         };
 
         $scope.answer = {
