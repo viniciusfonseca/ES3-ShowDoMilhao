@@ -83,3 +83,11 @@ path:hover{
   fill: #51CBEE!important;
 }
 
+path:hover{
+  fill: #51CBEE!important;
+}
+
+path#africa.active{
+  fill: blue!important;
+}
+

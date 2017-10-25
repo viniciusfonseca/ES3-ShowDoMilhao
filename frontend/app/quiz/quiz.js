@@ -78,6 +78,7 @@ angular.module('myApp.quiz', ['ngRoute'])
 
         }
 
+
         $scope.quiz = {
             question_ID: 23,
             question: "Lorem ipsum dolor sit amet, ne quod novum mei. Sea omnium invenire mediocrem at, in lobortis conclusionemque nam. Ne deleniti appetere reprimique pro, inani labitur disputationi te sed. At vix sale omnesque, id pro labitur reformidans accommodare, cum labores honestatis eu. Nec quem lucilius in, eam praesent reformidans no. Sed laudem aliquam ne.",
@@ -101,10 +102,11 @@ angular.module('myApp.quiz', ['ngRoute'])
             ]
         };
 
-
         $scope.submit = function () {
             alert(JSON.stringify($scope.answer))
         };
+
+
 
         $scope.user = {
             user_ID: 1,
@@ -114,7 +116,7 @@ angular.module('myApp.quiz', ['ngRoute'])
             continents: [
                 {
                     continent:'Africa',
-                    goal:5,
+                    goal:4,
                     score:3
                 },
                 {
@@ -124,7 +126,7 @@ angular.module('myApp.quiz', ['ngRoute'])
                 },
                 {
                     continent:'America do Norte',
-                    goal:5,
+                    goal:6,
                     score:2
                 },
                 {
@@ -140,7 +142,7 @@ angular.module('myApp.quiz', ['ngRoute'])
                 },
                 {
                     continent:'Oceania',
-                    goal:5,
+                    goal:3,
                     score:2
                 }
 
@@ -155,8 +157,6 @@ angular.module('myApp.quiz', ['ngRoute'])
 
 
         $scope.ranked = {
-            continent_ID: 1,
-            continent: "America do Sul",
             scores: [
                 {
                     user_ID: 1,
