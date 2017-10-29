@@ -3,3 +3,5 @@ logs/*
 tmp
 .DS_Store
 .idea
+frontend/node_modules/.bin/
+frontend/node_modules/

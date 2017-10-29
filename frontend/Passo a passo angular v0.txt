@@ -1,0 +1,18 @@
+Instalar source tree
+Criar conta no Atlassian
+Se não tiver,  criar conta no Git Hub
+Clonar o repositório ES3 Show do Milhão
+Instalar o node js
+Ir na pasta onde está o repositório do show do milhão
+Botão direito do mouse + shift apertado:
+Selecionar a opção abrir Terminal(Linux/Windows) ou PowerShell(Windows)
+No terminal em modo administrador(PowerShell) digite:
+
+npm install -g bower
+npm install
+
+caso de erro, tente antes, bower init
+depois rodar novamente
+npm install
+npm start
+
