@@ -1,1 +1,1 @@
-web: gunicorn movies.wsgi --pythonpath=movies/movies
+web: gunicorn show.wsgi --pythonpath=show/show
