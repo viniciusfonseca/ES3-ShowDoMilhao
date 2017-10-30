@@ -1,5 +1,3 @@
-# movies-api/movies/api/models.py
-
 from django.db import models
 
 class Movie(models.Model):

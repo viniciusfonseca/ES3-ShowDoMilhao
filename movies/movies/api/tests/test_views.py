@@ -1,5 +1,3 @@
-# show/show/api/tests/test_views.py
-
 from django.shortcuts import reverse
 
 from rest_framework.test import APITestCase
