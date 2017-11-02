@@ -1,1 +1,1 @@
-web: gunicorn show.wsgi --pythonpath=show/show
+web: newrelic-admin run-program gunicorn --log-file=- --pythonpath server core.wsgi
