@@ -12,7 +12,7 @@ def load_env():
     """
     Load .env file to the environment
     """
-    envfile = 'server/env.txt'
+    envfile = 'server/.env'
 
     try:
         with open(envfile) as f:
