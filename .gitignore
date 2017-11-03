@@ -81,3 +81,4 @@ client/dist
 client/.tmp
 client/.sass-cache
 client/app/static/bower_components
+runProc.sh
