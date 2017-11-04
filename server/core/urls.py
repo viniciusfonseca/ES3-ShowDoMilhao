@@ -12,7 +12,7 @@ admin.site.index_title = ugettext_lazy('Site administration')
 urlpatterns = patterns('',
                        url(r'^admin/', include(admin.site.urls)),
                        # url(r'^jogo/', include('jogo.urls')),
-                       url(r'^api/', include('api.urls')))
+                       url(r'^api/v1/', include('api.urls')))
 
 # Add client urls for debug mode
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
