@@ -90,5 +90,9 @@ logs/*
 tmp
 .DS_Store
 .idea
+<<<<<<< HEAD
+node_modules
+>>>>>>> e9af7b01f60f093036e4ce2c47056a7c0fd9965e
+=======
 node_modules
 >>>>>>> e9af7b01f60f093036e4ce2c47056a7c0fd9965e
