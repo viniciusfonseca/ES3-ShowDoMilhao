@@ -1,0 +1,29 @@
+Telas {
+
+    Login '/sign-in' {
+        '/login' - Login
+    }
+
+    Cadastro '/sign-up' {
+        '/user/create' - Cadastro
+    }
+
+    Admin {
+
+    }
+
+    Contexto {}
+
+    Mapa '/map' {
+
+    }
+
+    Pergunta {
+        '/perguntas/random' - Pergunta randômica
+        '/resposta' - Responder pergunta
+    }
+    
+    Loja {
+
+    }
+}

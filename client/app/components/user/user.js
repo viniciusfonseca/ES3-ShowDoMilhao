@@ -14,7 +14,7 @@
         return {
             login( credentials ) {
                 return $q(function(resolve, reject) {
-                    fetch( api + '/login', {
+                    fetch( api + '/admin/login/', {
                         method: 'POST',
                         mode: 'cors',
                         body: serialize( credentials )
