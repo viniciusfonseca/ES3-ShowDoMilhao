@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -83,3 +84,11 @@ client/.tmp
 client/.sass-cache
 client/app/static/bower_components
 runProc.sh
+=======
+logs/*
+!.gitkeep
+tmp
+.DS_Store
+.idea
+node_modules
+>>>>>>> e9af7b01f60f093036e4ce2c47056a7c0fd9965e

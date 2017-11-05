@@ -1,3 +1,3 @@
 angular.module('myApp.api', [])
 
-.value('api', "http://domain.com.br")
+.value('api', "https://show-prod.herokuapp.com/api/v1")
