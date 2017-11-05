@@ -19,7 +19,7 @@ angular.module('myApp.signIn', ['ngRoute'])
             User.login( $scope.user ).then(function(res) {
                 console.log('*** login realizado com sucesso', res)
 
-                $location.path('/shop')
+                $location.path('/map')
             })
             .then(function(err) {
                 console.log('*** erro ao realizar login', err)

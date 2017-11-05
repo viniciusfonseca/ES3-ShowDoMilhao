@@ -13,14 +13,13 @@
     .service('User', function($q, api) {
         return {
             login( credentials ) {
-                return $q(function(resolve) { resolve() })
-
-                // return $q(function(resolve, reject) {
-                //     fetch( api + '/login', {
-                //         method: 'POST',
-                //         body: serialize( credentials )
-                //     }).then(resolve).catch(reject)
-                // })
+                return $q(function(resolve) {
+                return $q(function(resolve, reject) {
+                    fetch( api + '/login', {
+                        method: 'POST',
+                        body: serialize( credentials )
+                    }).then(resolve).catch(reject)
+                })
             }
         }
     })
