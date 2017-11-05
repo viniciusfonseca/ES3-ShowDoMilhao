@@ -22,7 +22,7 @@ angular.module('myApp.quiz', ['ngRoute'])
         $scope.showAdvanced = function (ev) {
             $mdDialog.show({
                 controller: DialogController,
-                templateUrl: 'cartas/cartas.html',
+                templateUrl: 'quiz/cartas.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 scope: $scope,

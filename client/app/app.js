@@ -6,17 +6,18 @@ angular.module('myApp', [
   'ngMaterial',
   'ngAria',
   'ngAnimate',
-  'myApp.view1',
-  'myApp.view2',
   'myApp.signUp',
   'myApp.signIn',
   'myApp.map',
   'myApp.quiz',
   'myApp.shop',
   'myApp.admin',
+
+  'myApp.user',
+  'myApp.api',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.otherwise({redirectTo: '/sign-in'});
 }]);
