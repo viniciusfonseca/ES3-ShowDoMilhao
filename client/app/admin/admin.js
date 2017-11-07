@@ -16,12 +16,12 @@ angular.module('myApp.admin', ['ngRoute'])
 
     return {
         fetchList() {
-            return fetch(`${api}/perguntas/list${json}`, { mode: 'cors' })
+            return fetch(`${api}/pergunta/list${json}`, { mode: 'cors' })
                 .then(function(r) { return r.json() })
         },
 
         post( id ) {
-            return fetch(`${api}/perguntas/${id}${json}`)
+            return fetch(`${api}/pergunta/${id}${json}`, { mode: 'cors' })
                 .then(function(r) { return r.json() })
         }
     }
