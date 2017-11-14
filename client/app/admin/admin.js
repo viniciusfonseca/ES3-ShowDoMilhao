@@ -16,6 +16,8 @@ angular.module('myApp.admin', ['ngRoute'])
 
         return {
             fetchList() {
+
+                /*
                 return Promise.resolve([
                     {
                         "id_pergunta": 12,
@@ -143,6 +145,7 @@ angular.module('myApp.admin', ['ngRoute'])
                         "alt_d": "",
                     }
                 ])
+                */
 
                 return fetch(`${api}/pergunta/list${json}`, {mode: 'cors'})
                     .then(function (r) {
@@ -156,19 +159,46 @@ angular.module('myApp.admin', ['ngRoute'])
                     .then(function (r) {
                         return r.json()
                     })
-            }
+            },
+
         }
     })
 
-    .controller('adminCtrl', function ($scope, Pergunta) {
+    .controller('adminCtrl', function ($scope, $http, Pergunta) {
 
+        var api = "https://show-prod.herokuapp.com/api/v1";
+        var json = '?format=json';
+
+        $scope.menu = true;
         $scope.perguntas = [];
-
         $scope.data = {};
 
         Object.assign($scope, {
 
             submit(url) {
+                switch (url){
+                    case "create":
+                        $http.post(`${api}/pergunta/${json}`)
+                            .then(function(response) {
+                                console.log(response.data);
+                                $scope.perguntas = response.data;
+                            });
+                        break;
+                    case "update":
+                        $http.put(`${api}/pergunta/`,)
+                            .then(function(response) {
+                                $scope.perguntas = response.data;
+                            });
+                        break;
+                    case "delete":
+                        $http.put(`${api}/pergunta/`,)
+                            .then(function(response) {
+                                $scope.perguntas = response.data;
+                            });
+                        break;
+                }
+
+
                 $scope.data.crud = url;
                 alert(JSON.stringify($scope.data));
             },
@@ -178,8 +208,20 @@ angular.module('myApp.admin', ['ngRoute'])
             }
         });
 
+        $http.get(`${api}/pergunta/${json}`)
+            .then(function(response) {
+                console.log(response.data);
+                $scope.perguntas = response.data;
+            });
+
+
+
+        /*
         Pergunta.fetchList().then(function (perguntas) {
+            console.log(perguntas);
             $scope.perguntas = perguntas;
             $scope.$apply()
+
         })
+        */
     });

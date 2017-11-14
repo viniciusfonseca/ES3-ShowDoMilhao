@@ -1,9 +1,167 @@
-<md-content layout-margin>
-    <form name="projectForm">
-        <div class="md-headline"> Administração de Perguntas</div>
-        <md-divider></md-divider>
-        <md-tabs>
-            <md-tab label="Nova">
+<md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+        <md-menu>
+            <md-button aria-label="" class="md-icon-button" ng-click="$mdMenu.open($event)">
+                <md-icon>
+                    <i class="material-icons">menu</i>
+                </md-icon>
+            </md-button>
+            <md-menu-content width="4">
+                <md-menu-item>
+                    <md-button ng-click="$parent.menu = true">
+                        Usuários
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button ng-click="$parent.menu = false">
+                        Perguntas
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+        <h2 flex md-truncate>Administração de {{(menu)?'Usuarios':'Perguntas'}}</h2>
+    </div>
+</md-toolbar>
+<md-content layout-margin ng-show="menu">
+    <md-tabs md-border-bottom>
+        <md-tab label="Novo">
+            <form name="projectFormUserNew">
+                <md-content layout="row">
+                    <div flex>
+                        <md-card layout-margin>
+                            <div>
+                                <md-input-container class="md-block">
+                                    <label>Nome</label>
+                                    <input type="text"
+                                           required
+                                           name="nome"
+                                           ng-model="userNew.nome"/>
+                                </md-input-container>
+                                <md-input-container class="md-block">
+                                    <label>E-mail</label>
+                                    <input type="email"
+                                           required
+                                           name="email"
+                                           ng-model="userNew.email"/>
+                                </md-input-container>
+                                <md-input-container class="md-block">
+                                    <label>Senha</label>
+                                    <input type="password"
+                                           required
+                                           name="senha"
+                                           ng-model="userNew.senha"/>
+                                </md-input-container>
+                                <md-input-container class="md-block">
+                                    <label>Pontos</label>
+                                    <input type="number"
+                                           required
+                                           name="pontos"
+                                           ng-model="userNew.pontos"/>
+                                </md-input-container>
+                                <md-checkbox ng-model="userNew.is_admin" aria-label="">
+                                    Administrador
+                                </md-checkbox>
+                                <md-card-actions layout="row" layout-align="end center">
+                                    <md-button
+                                            ng-disabled="!projectFormUserNew.$valid"
+                                            class="md-raised md-primary"
+                                            type="submit"
+                                            ng-click="submit('create')">
+                                        Criar
+                                    </md-button>
+                                </md-card-actions>
+                            </div>
+                        </md-card>
+                    </div>
+                </md-content>
+            </form>
+        </md-tab>
+        <md-tab label="Alterar">
+            <form name="projectFormUser">
+                <md-content layout="row">
+                    <div flex="30">
+                        <md-card layout-margin>
+                            <div>
+                                <md-input-container class="md-icon-float md-block">
+                                    <!-- Use floating label instead of placeholder -->
+                                    <label>Pesquisar usuario</label>
+                                    <md-icon>
+                                        <i class="material-icons">search</i>
+                                    </md-icon>
+                                    <input ng-model="search" type="text">
+                                </md-input-container>
+                            </div>
+                            <div  layout="row" layout-align="center center">
+                                <div>
+                                    <md-progress-circular ng-if="!(perguntas && perguntas.length)" md-mode="indeterminate" layout-align="center center"></md-progress-circular>
+                                </div>
+                            </div>
+                            <md-list flex ng-if="perguntas && perguntas.length">
+                                <md-list-item class="md-3-line" ng-click="selectQuestion(pergunta)"
+                                              ng-repeat="pergunta in perguntas | filter:search">
+                                    <div class="md-list-item-text" layout="column">
+                                        <h3> Pergunta #{{ pergunta.id_pergunta }}</h3>
+                                        <h4>{{ pergunta.pergunta }}</h4>
+                                    </div>
+                                </md-list-item>
+                            </md-list>
+                        </md-card>
+                    </div>
+                    <div flex>
+                        <md-card layout-margin>
+                            <div>
+                                <md-input-container class="md-block">
+                                    <label>Nome</label>
+                                    <input type="text"
+                                           required
+                                           name="nome"
+                                           ng-model="user.nome"/>
+                                </md-input-container>
+                                <md-input-container class="md-block">
+                                    <label>E-mail</label>
+                                    <input type="email"
+                                           required
+                                           name="email"
+                                           ng-model="user.email"/>
+                                </md-input-container>
+                                <md-input-container class="md-block">
+                                    <label>Senha</label>
+                                    <input type="password"
+                                           required
+                                           name="senha"
+                                           ng-model="user.senha"/>
+                                </md-input-container>
+                                <md-input-container class="md-block">
+                                    <label>Pontos</label>
+                                    <input type="number"
+                                           required
+                                           name="alt_c"
+                                           ng-model="user.pontos"/>
+                                </md-input-container>
+                                <md-checkbox ng-model="user.is_admin" aria-label="">
+                                    Administrador
+                                </md-checkbox>
+                                <md-card-actions layout="row" layout-align="end center">
+                                    <md-button
+                                            ng-disabled="!projectFormUser.$valid"
+                                            class="md-raised md-primary"
+                                            type="submit"
+                                            ng-click="submit('create')">
+                                        Criar
+                                    </md-button>
+                                </md-card-actions>
+                            </div>
+                        </md-card>
+                    </div>
+                </md-content>
+            </form>
+        </md-tab>
+    </md-tabs>
+</md-content>
+<md-content layout-margin ng-show="!menu">
+    <md-tabs md-border-bottom>
+        <md-tab label="Nova">
+            <form name="projectFormNew">
                 <md-content layout="row">
                     <div flex>
                         <md-card layout-margin>
@@ -49,7 +207,7 @@
                                 </md-radio-group>
                                 <md-card-actions layout="row" layout-align="end center">
                                     <md-button
-                                            ng-disabled="!projectForm.$valid"
+                                            ng-disabled="!projectFormNew.$valid"
                                             class="md-raised md-primary"
                                             type="submit"
                                             ng-click="submit('create')">
@@ -60,8 +218,10 @@
                         </md-card>
                     </div>
                 </md-content>
-            </md-tab>
-            <md-tab label="Alterar">
+            </form>
+        </md-tab>
+        <md-tab label="Alterar">
+            <form name="projectForm">
                 <md-content layout="row">
                     <div flex="30">
                         <md-card layout-margin>
@@ -75,7 +235,11 @@
                                     <input ng-model="search" type="text">
                                 </md-input-container>
                             </div>
-
+                            <div  layout="row" layout-align="center center">
+                                <div>
+                                    <md-progress-circular ng-if="!(perguntas && perguntas.length)" md-mode="indeterminate" layout-align="center center"></md-progress-circular>
+                                </div>
+                            </div>
                             <md-list flex ng-if="perguntas && perguntas.length">
                                 <md-list-item class="md-3-line" ng-click="selectQuestion(pergunta)"
                                               ng-repeat="pergunta in perguntas | filter:search">
@@ -107,28 +271,28 @@
                                     <input type="text"
                                            required
                                            name="alt_a"
-                                           ng-model="data.alt_a"/>
+                                           ng-model="data.alternativas[0].alternativa"/>
                                 </md-input-container>
                                 <md-input-container class="md-block">
                                     <label>Alternativa B</label>
                                     <input type="text"
                                            required
                                            name="alt_b"
-                                           ng-model="data.alt_b"/>
+                                           ng-model="data.alternativas[1].alternativa"/>
                                 </md-input-container>
                                 <md-input-container class="md-block">
                                     <label>Alternativa C</label>
                                     <input type="text"
                                            required
                                            name="alt_c"
-                                           ng-model="data.alt_c"/>
+                                           ng-model="data.alternativas[2].alternativa"/>
                                 </md-input-container>
                                 <md-input-container class="md-block">
                                     <label>Alternativa D</label>
                                     <input type="text"
                                            required
                                            name="alt_d"
-                                           ng-model="data.alt_d"/>
+                                           ng-model="data.alternativas[3].alternativa"/>
                                 </md-input-container>
                                 <p>Alternativa Correta </p>
                                 <md-radio-group ng-model="data.alt_correta" required layout="row">
@@ -154,18 +318,16 @@
                                     </md-button>
                                 </md-card-actions>
                             </div>
-
                         </md-card>
-
                     </div>
                 </md-content>
-            </md-tab>
-        </md-tabs>
-    </form>
+            </form>
+        </md-tab>
+    </md-tabs>
 </md-content>
 <style>
     md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
-        min-height: 100vh;
+        min-height: 90vh;
     }
 </style>
                                                                                                                                                                                                
