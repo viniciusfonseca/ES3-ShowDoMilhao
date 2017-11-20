@@ -29,49 +29,84 @@
                 <md-content layout="row">
                     <div flex>
                         <md-card layout-margin>
-                            <div>
-                                <md-input-container class="md-block">
-                                    <label>Nome</label>
-                                    <input type="text"
-                                           required
-                                           name="nome"
-                                           ng-model="userNew.nome"/>
-                                </md-input-container>
-                                <md-input-container class="md-block">
-                                    <label>E-mail</label>
-                                    <input type="email"
-                                           required
-                                           name="email"
-                                           ng-model="userNew.email"/>
-                                </md-input-container>
-                                <md-input-container class="md-block">
-                                    <label>Senha</label>
-                                    <input type="password"
-                                           required
-                                           name="senha"
-                                           ng-model="userNew.senha"/>
-                                </md-input-container>
-                                <md-input-container class="md-block">
-                                    <label>Pontos</label>
-                                    <input type="number"
-                                           required
-                                           name="pontos"
-                                           ng-model="userNew.pontos"/>
-                                </md-input-container>
-                                <md-checkbox ng-model="userNew.is_admin" aria-label="">
-                                    Administrador
-                                </md-checkbox>
-                                <md-card-actions layout="row" layout-align="end center">
-                                    <md-button
-                                            ng-disabled="!projectFormUserNew.$valid"
-                                            class="md-raised md-primary"
-                                            type="submit"
-                                            ng-click="submit('create')">
-                                        Criar
-                                    </md-button>
-                                </md-card-actions>
+                            <div layout="row">
+                                <div flex>
+                                    <md-input-container class="md-block">
+                                        <label>Nome</label>
+                                        <input type="text"
+                                               required
+                                               name="nome"
+                                               ng-model="userNew.nome"/>
+                                    </md-input-container>
+                                    <md-input-container class="md-block">
+                                        <label>E-mail</label>
+                                        <input type="email"
+                                               required
+                                               name="email"
+                                               ng-model="userNew.email"/>
+                                    </md-input-container>
+                                    <md-input-container class="md-block">
+                                        <label>Senha</label>
+                                        <input type="password"
+                                               required
+                                               name="senha"
+                                               ng-model="userNew.senha"/>
+                                    </md-input-container>
+                                    <md-input-container class="md-block">
+                                        <label>Pontos</label>
+                                        <input type="number"
+                                               required
+                                               name="pontos"
+                                               ng-model="userNew.pontos"/>
+                                    </md-input-container>
+                                    <md-checkbox ng-model="userNew.is_admin" aria-label="">
+                                        Administrador
+                                    </md-checkbox>
+                                </div>
+                                <div flex="35" layout-margin>
+                                    <p>Escolha seu avatar</p>
+                                    <md-radio-group ng-model="user.avatar"
+                                                    ng-required="true"
+                                                    layout="row"
+                                                    layout-wrap>
+                                        <md-radio-button ng-repeat="it in avatarData"
+                                                         ng-value="it"
+                                                         aria-label="{{it}}">
+                                            <img layout-padding
+                                                 src="components/img/avatar/{{it}}"
+                                                 alt="{{it}}"
+                                                 width="70" class="md-avatar">
+                                        </md-radio-button>
+                                    </md-radio-group>
+                                    <br>
+                                    <p>Escolha seu balão</p>
+                                    <md-radio-group ng-model="user.balloon"
+                                                    ng-required="true"
+                                                    layout="row"
+                                                    layout-wrap>
+                                        <md-radio-button ng-repeat="it in balloonData"
+                                                         ng-value="it"
+                                                         aria-label="{{it}}">
+                                            <img layout-padding
+                                                 src="components/img/balloon/{{it}}"
+                                                 alt="{{it}}"
+                                                 width="70" class="md-avatar">
+                                        </md-radio-button>
+                                    </md-radio-group>
+                                </div>
                             </div>
-                        </md-card>
+
+                            <md-card-actions layout="row" layout-align="end center">
+                                <md-button
+                                        ng-disabled="!projectFormUserNew.$valid"
+                                        class="md-raised md-primary"
+                                        type="submit"
+                                        ng-click="submitUser('create')">
+                                    Criar
+                                </md-button>
+                            </md-card-actions>
+                    </div>
+                    </md-card>
                     </div>
                 </md-content>
             </form>
@@ -91,17 +126,19 @@
                                     <input ng-model="search" type="text">
                                 </md-input-container>
                             </div>
-                            <div  layout="row" layout-align="center center">
+                            <div layout="row" layout-align="center center">
                                 <div>
-                                    <md-progress-circular ng-if="!(perguntas && perguntas.length)" md-mode="indeterminate" layout-align="center center"></md-progress-circular>
+                                    <md-progress-circular ng-if="!(usuarios && usuarios.length)" md-mode="indeterminate"
+                                                          layout-align="center center"></md-progress-circular>
                                 </div>
                             </div>
-                            <md-list flex ng-if="perguntas && perguntas.length">
-                                <md-list-item class="md-3-line" ng-click="selectQuestion(pergunta)"
-                                              ng-repeat="pergunta in perguntas | filter:search">
+                            <md-list flex ng-if="usuarios && usuarios.length">
+                                <md-list-item class="md-3-line" ng-click="selectUser(usuario)"
+                                              ng-repeat="usuario in usuarios | filter:search">
                                     <div class="md-list-item-text" layout="column">
-                                        <h3> Pergunta #{{ pergunta.id_pergunta }}</h3>
-                                        <h4>{{ pergunta.pergunta }}</h4>
+                                        <h3> Usuário #{{ usuario.id_usuario }}</h3>
+                                        <h4>{{ usuario.nome }}</h4>
+                                        <p>{{ usuario.email }}</p>
                                     </div>
                                 </md-list-item>
                             </md-list>
@@ -109,48 +146,88 @@
                     </div>
                     <div flex>
                         <md-card layout-margin>
-                            <div>
-                                <md-input-container class="md-block">
-                                    <label>Nome</label>
-                                    <input type="text"
-                                           required
-                                           name="nome"
-                                           ng-model="user.nome"/>
-                                </md-input-container>
-                                <md-input-container class="md-block">
-                                    <label>E-mail</label>
-                                    <input type="email"
-                                           required
-                                           name="email"
-                                           ng-model="user.email"/>
-                                </md-input-container>
-                                <md-input-container class="md-block">
-                                    <label>Senha</label>
-                                    <input type="password"
-                                           required
-                                           name="senha"
-                                           ng-model="user.senha"/>
-                                </md-input-container>
-                                <md-input-container class="md-block">
-                                    <label>Pontos</label>
-                                    <input type="number"
-                                           required
-                                           name="alt_c"
-                                           ng-model="user.pontos"/>
-                                </md-input-container>
-                                <md-checkbox ng-model="user.is_admin" aria-label="">
-                                    Administrador
-                                </md-checkbox>
-                                <md-card-actions layout="row" layout-align="end center">
-                                    <md-button
-                                            ng-disabled="!projectFormUser.$valid"
-                                            class="md-raised md-primary"
-                                            type="submit"
-                                            ng-click="submit('create')">
-                                        Criar
-                                    </md-button>
-                                </md-card-actions>
+                            <div layout="row">
+                                <div flex>
+                                    <md-input-container class="md-block">
+                                        <label>Nome</label>
+                                        <input type="text"
+                                               required
+                                               name="nome"
+                                               ng-model="user.nome"/>
+                                    </md-input-container>
+                                    <md-input-container class="md-block">
+                                        <label>E-mail</label>
+                                        <input type="email"
+                                               required
+                                               name="email"
+                                               ng-model="user.email"/>
+                                    </md-input-container>
+                                    <md-input-container class="md-block">
+                                        <label>Senha</label>
+                                        <input type="password"
+                                               required
+                                               name="senha"
+                                               ng-model="user.senha"/>
+                                    </md-input-container>
+                                    <md-input-container class="md-block">
+                                        <label>Pontos</label>
+                                        <input type="number"
+                                               required
+                                               name="alt_c"
+                                               ng-model="user.pontos"/>
+                                    </md-input-container>
+                                    <md-checkbox ng-model="user.is_admin" aria-label="">
+                                        Administrador
+                                    </md-checkbox>
+                                </div>
+                                <div flex="50" layout-margin>
+                                    <p>Escolha seu avatar</p>
+                                    <md-radio-group ng-model="user.avatar"
+                                                    ng-required="true"
+                                                    layout="row"
+                                                    layout-wrap>
+                                        <md-radio-button ng-repeat="it in avatarData"
+                                                         ng-value="it"
+                                                         aria-label="{{it}}">
+                                            <img layout-padding
+                                                 src="components/img/avatar/{{it}}"
+                                                 alt="{{it}}"
+                                                 width="70" class="md-avatar">
+                                        </md-radio-button>
+                                    </md-radio-group>
+                                    <br>
+                                    <p>Escolha seu balão</p>
+                                    <md-radio-group ng-model="user.balao"
+                                                    ng-required="true"
+                                                    layout="row"
+                                                    layout-wrap>
+                                        <md-radio-button ng-repeat="it in balloonData"
+                                                         ng-value="it"
+                                                         aria-label="{{it}}">
+                                            <img layout-padding
+                                                 src="components/img/balloon/{{it}}"
+                                                 alt="{{it}}"
+                                                 width="70" class="md-avatar">
+                                        </md-radio-button>
+                                    </md-radio-group>
+                                </div>
                             </div>
+                            <md-card-actions layout="row" layout-align="end center">
+                                <md-button
+                                        ng-disabled="!projectFormUser.$valid"
+                                        class="md-warn"
+                                        type="submit"
+                                        ng-click="submitUser('delete')">
+                                    Excluir
+                                </md-button>
+                                <md-button
+                                        ng-disabled="!projectFormUser.$valid"
+                                        class="md-raised md-primary"
+                                        type="submit"
+                                        ng-click="submitUser('update')">
+                                    Salvar
+                                </md-button>
+                            </md-card-actions>
                         </md-card>
                     </div>
                 </md-content>
@@ -168,43 +245,95 @@
                             <div>
                                 <md-input-container class="md-block">
                                     <label>Pergunta</label>
-                                    <textarea ng-model="data.pergunta" required rows="3"></textarea>
-                                </md-input-container>
-                                <md-input-container class="md-block">
-                                    <label>Alternativa A</label>
                                     <input type="text"
                                            required
-                                           name="alt_a"
-                                           ng-model="data.alt_a"/>
+                                           name="pergunta"
+                                           ng-model="new.pergunta"/>
                                 </md-input-container>
-                                <md-input-container class="md-block">
-                                    <label>Alternativa B</label>
-                                    <input type="text"
-                                           required
-                                           name="alt_b"
-                                           ng-model="data.alt_b"/>
-                                </md-input-container>
-                                <md-input-container class="md-block">
-                                    <label>Alternativa C</label>
-                                    <input type="text"
-                                           required
-                                           name="alt_c"
-                                           ng-model="data.alt_c"/>
-                                </md-input-container>
-                                <md-input-container class="md-block">
-                                    <label>Alternativa D</label>
-                                    <input type="text"
-                                           required
-                                           name="alt_d"
-                                           ng-model="data.alt_d"/>
-                                </md-input-container>
-                                <p>Alternativa Correta </p>
-                                <md-radio-group ng-model="data.alt_correta" required layout="row">
-                                    <md-radio-button value="a">A</md-radio-button>
-                                    <md-radio-button value="b">B</md-radio-button>
-                                    <md-radio-button value="c">C</md-radio-button>
-                                    <md-radio-button value="d">D</md-radio-button>
-                                </md-radio-group>
+                                <div layout="row">
+                                    <div flex="5">
+                                        <md-input-container class="md-block">
+                                            <md-checkbox
+                                                    ng-model="new.alternativas[0].resposta"
+                                                    aria-label=""
+                                                    ng-true-value="1"
+                                                    ng-false-value="0">
+                                            </md-checkbox>
+                                        </md-input-container>
+                                    </div>
+                                    <div flex>
+                                        <md-input-container class="md-block">
+                                            <label>Alternativa A</label>
+                                            <input type="text"
+                                                   required
+                                                   name="alt_a"
+                                                   ng-model="new.alternativas[0].alternativa"/>
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <div layout="row">
+                                    <div flex="5">
+                                        <md-input-container class="md-block">
+                                            <md-checkbox
+                                                    ng-model="new.alternativas[1].resposta"
+                                                    aria-label=""
+                                                    ng-true-value="1"
+                                                    ng-false-value="0">
+                                            </md-checkbox>
+                                        </md-input-container>
+                                    </div>
+                                    <div flex>
+                                        <md-input-container class="md-block">
+                                            <label>Alternativa B</label>
+                                            <input type="text"
+                                                   required
+                                                   name="alt_b"
+                                                   ng-model="new.alternativas[1].alternativa"/>
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <div layout="row">
+                                    <div flex="5">
+                                        <md-input-container class="md-block">
+                                            <md-checkbox
+                                                    ng-model="new.alternativas[2].resposta"
+                                                    aria-label=""
+                                                    ng-true-value="1"
+                                                    ng-false-value="0">
+                                            </md-checkbox>
+                                        </md-input-container>
+                                    </div>
+                                    <div flex>
+                                        <md-input-container class="md-block">
+                                            <label>Alternativa C</label>
+                                            <input type="text"
+                                                   required
+                                                   name="alt_c"
+                                                   ng-model="new.alternativas[2].alternativa"/>
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <div layout="row">
+                                    <div flex="5">
+                                        <md-input-container class="md-block">
+                                            <md-checkbox
+                                                    ng-model="new.alternativas[3].resposta"
+                                                    aria-label=""
+                                                    ng-true-value="1"
+                                                    ng-false-value="0">
+                                            </md-checkbox>
+                                        </md-input-container>
+                                    </div>
+                                    <div flex>
+                                        <md-input-container class="md-block">
+                                            <label>Alternativa D</label>
+                                            <input type="text"
+                                                   required
+                                                   name="alt_d"
+                                                   ng-model="new.alternativas[3].alternativa"/>
+                                        </md-input-container>
+                                    </div>
+                                </div>
                                 <md-card-actions layout="row" layout-align="end center">
                                     <md-button
                                             ng-disabled="!projectFormNew.$valid"
@@ -235,11 +364,6 @@
                                     <input ng-model="search" type="text">
                                 </md-input-container>
                             </div>
-                            <div  layout="row" layout-align="center center">
-                                <div>
-                                    <md-progress-circular ng-if="!(perguntas && perguntas.length)" md-mode="indeterminate" layout-align="center center"></md-progress-circular>
-                                </div>
-                            </div>
                             <md-list flex ng-if="perguntas && perguntas.length">
                                 <md-list-item class="md-3-line" ng-click="selectQuestion(pergunta)"
                                               ng-repeat="pergunta in perguntas | filter:search">
@@ -256,52 +380,101 @@
                             <div>
                                 <md-input-container class="md-block">
                                     <label>ID da pergunta</label>
-                                    <input type="number"
-                                           disabled
+                                    <input type="text"
+                                           readonly
                                            required
                                            name="id_pergunta"
                                            ng-model="data.id_pergunta"/>
+
                                 </md-input-container>
                                 <md-input-container class="md-block">
                                     <label>Pergunta</label>
                                     <textarea ng-model="data.pergunta" required rows="3"></textarea>
                                 </md-input-container>
-                                <md-input-container class="md-block">
-                                    <label>Alternativa A</label>
-                                    <input type="text"
-                                           required
-                                           name="alt_a"
-                                           ng-model="data.alternativas[0].alternativa"/>
-                                </md-input-container>
-                                <md-input-container class="md-block">
-                                    <label>Alternativa B</label>
-                                    <input type="text"
-                                           required
-                                           name="alt_b"
-                                           ng-model="data.alternativas[1].alternativa"/>
-                                </md-input-container>
-                                <md-input-container class="md-block">
-                                    <label>Alternativa C</label>
-                                    <input type="text"
-                                           required
-                                           name="alt_c"
-                                           ng-model="data.alternativas[2].alternativa"/>
-                                </md-input-container>
-                                <md-input-container class="md-block">
-                                    <label>Alternativa D</label>
-                                    <input type="text"
-                                           required
-                                           name="alt_d"
-                                           ng-model="data.alternativas[3].alternativa"/>
-                                </md-input-container>
-                                <p>Alternativa Correta </p>
-                                <md-radio-group ng-model="data.alt_correta" required layout="row">
-                                    <md-radio-button value="a">A</md-radio-button>
-                                    <md-radio-button value="b">B</md-radio-button>
-                                    <md-radio-button value="c">C</md-radio-button>
-                                    <md-radio-button value="d">D</md-radio-button>
-                                </md-radio-group>
-                                <md-divider></md-divider>
+                                <div layout="row">
+                                    <div flex="5">
+                                        <md-input-container class="md-block">
+                                            <md-checkbox
+                                                    ng-model="data.alternativas[0].resposta"
+                                                    aria-label=""
+                                                    ng-true-value="1"
+                                                    ng-false-value="0">
+                                            </md-checkbox>
+                                        </md-input-container>
+                                    </div>
+                                    <div flex>
+                                        <md-input-container class="md-block">
+                                            <label>Alternativa A</label>
+                                            <input type="text"
+                                                   required
+                                                   name="alt_a"
+                                                   ng-model="data.alternativas[0].alternativa"/>
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <div layout="row">
+                                    <div flex="5">
+                                        <md-input-container class="md-block">
+                                            <md-checkbox
+                                                    ng-model="data.alternativas[1].resposta"
+                                                    aria-label=""
+                                                    ng-true-value="1"
+                                                    ng-false-value="0">
+                                            </md-checkbox>
+                                        </md-input-container>
+                                    </div>
+                                    <div flex>
+                                        <md-input-container class="md-block">
+                                            <label>Alternativa B</label>
+                                            <input type="text"
+                                                   required
+                                                   name="alt_b"
+                                                   ng-model="data.alternativas[1].alternativa"/>
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <div layout="row">
+                                    <div flex="5">
+                                        <md-input-container class="md-block">
+                                            <md-checkbox
+                                                    ng-model="data.alternativas[2].resposta"
+                                                    aria-label=""
+                                                    ng-true-value="1"
+                                                    ng-false-value="0">
+                                            </md-checkbox>
+                                        </md-input-container>
+                                    </div>
+                                    <div flex>
+                                        <md-input-container class="md-block">
+                                            <label>Alternativa C</label>
+                                            <input type="text"
+                                                   required
+                                                   name="alt_c"
+                                                   ng-model="data.alternativas[2].alternativa"/>
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <div layout="row">
+                                    <div flex="5">
+                                        <md-input-container class="md-block">
+                                            <md-checkbox
+                                                    ng-model="data.alternativas[3].resposta"
+                                                    aria-label=""
+                                                    ng-true-value="1"
+                                                    ng-false-value="0">
+                                            </md-checkbox>
+                                        </md-input-container>
+                                    </div>
+                                    <div flex>
+                                        <md-input-container class="md-block">
+                                            <label>Alternativa D</label>
+                                            <input type="text"
+                                                   required
+                                                   name="alt_d"
+                                                   ng-model="data.alternativas[3].alternativa"/>
+                                        </md-input-container>
+                                    </div>
+                                </div>
                                 <md-card-actions layout="row" layout-align="end center">
                                     <md-button class="md-warn"
                                                ng-disabled="!projectForm.$valid"
@@ -311,7 +484,7 @@
                                     </md-button>
                                     <md-button
                                             ng-disabled="!projectForm.$valid"
-                                            class="md-rised md-primary"
+                                            class="md-raised md-primary"
                                             type="submit"
                                             ng-click="submit('update')">
                                         Salvar

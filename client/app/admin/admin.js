@@ -173,9 +173,53 @@ angular.module('myApp.admin', ['ngRoute'])
         $scope.perguntas = [];
         $scope.data = {};
 
-        Object.assign($scope, {
+        $scope.avatarData = [
+            "download.png",
+            "download(1).png",
+            "download(2).png",
+            "download(3).png",
+            "download(4).png",
+            "download(5).png"
+        ];
 
+        $scope.balloonData = [
+            "balloon.png",
+            "balloon(1).png",
+            "balloon(2).png",
+            "balloon(3).png",
+            "balloon(4).png",
+            "balloon(5).png"
+        ];
+
+        function reset_new () {
+            $scope.new = {
+                pergunta:"",
+                alternativas: [
+                    {
+                        alternativa:"",
+                        resposta:0
+                    },
+                    {
+                        alternativa:"",
+                        resposta:0
+                    },
+                    {
+                        alternativa:"",
+                        resposta:0
+                    },
+                    {
+                        alternativa:"",
+                        resposta:0
+                    },
+                ]
+            };
+        }
+
+        reset_new();
+
+        Object.assign($scope, {
             submit(url) {
+                /*
                 switch (url){
                     case "create":
                         $http.post(`${api}/pergunta/${json}`)
@@ -196,23 +240,97 @@ angular.module('myApp.admin', ['ngRoute'])
                                 $scope.perguntas = response.data;
                             });
                         break;
+                 }
+                */
+                switch (url){
+                    case "create":
+                        $http.post(`${api}/pergunta/create`,$scope.new)
+                            .then(function(response) {
+                                reset_new();
+                                $scope.perguntas.push(response.data);
+                                alert("Pergunta criada.");
+                            });
+                        break;
+                    case "read":
+                        $http.get(`${api}/pergunta/list`)
+                            .then(function(response) {
+                                console.log(response.data);
+                                $scope.perguntas = response.data;
+                            });
+                        break;
+
+                    case "update":
+                        $http.put(`${api}/pergunta/${$scope.data.id_pergunta}`,$scope.data)
+                            .then(function(response) {
+                                alert("Pergunta salva.");
+                            });
+                        break;
+                    case "delete":
+                        $http.delete(`${api}/pergunta/${$scope.data.id_pergunta}`,$scope.data)
+                            .then(function(response) {
+                                $scope.submit('read');
+                                $scope.data = {};
+                                alert("Pergunta excluida.");
+                            });
+                        break;
                 }
-
-
                 $scope.data.crud = url;
-                alert(JSON.stringify($scope.data));
             },
 
             selectQuestion(pergunta) {
-                $scope.data = pergunta
-            }
+                $scope.data = pergunta;
+            },
+            selectUser(usuario) {
+                $scope.user = usuario;
+            },
+
+            submitUser(url) {
+                console.log($scope.user);
+                switch (url){
+                    case "create":
+                        $http.post(`${api}/user/`,$scope.user)
+                            .then(function(response) {
+                               $scope.usuarios.push(response.data);
+                                alert("Usuario criada.");
+                            });
+                        break;
+                    case "read":
+                        $http.get(`${api}/user`)
+                            .then(function(response) {
+                                console.log(response.data);
+                                $scope.usuarios = response.data;
+                            });
+                        break;
+
+                    case "update":
+                        $http.put(`${api}/pergunta/${$scope.data.id_pergunta}`,$scope.data)
+                            .then(function(response) {
+                                alert("Pergunta salva.");
+                            });
+                        break;
+                    case "delete":
+                        $http.delete(`${api}/pergunta/${$scope.data.id_pergunta}`,$scope.data)
+                            .then(function(response) {
+                                $scope.submit('read');
+                                alert("Pergunta excluida.");
+                            });
+                        break;
+                }
+                $scope.data.crud = url;
+            },
         });
 
+        $scope.submit('read');
+        $scope.submitUser('read');
+
+        /*
         $http.get(`${api}/pergunta/${json}`)
             .then(function(response) {
                 console.log(response.data);
                 $scope.perguntas = response.data;
             });
+       */
+
 
 
 
