@@ -1,5 +1,6 @@
 body {
   overflow: hidden;
+  background-color: #003472;
 }
 
 /*
@@ -121,3 +122,289 @@ path#africa.active{
   fill: blue!important;
 }
 
+/* ENTRAR */
+
+.margem{
+  margin-left: 10%;
+}
+body { 
+    background-repeat: no-repeat;
+}
+#xti {display:block; margin:20px auto;}
+.BordaTela{
+  position: relative;
+  border-style: solid;
+  border-radius: 15px;
+  width: 1060px;
+  height: 662px;
+  height: 600px;
+  background-color: yellow;
+  /*margin-left: 10%;*/
+  background-image: url("sign-in/001_comecar.png" );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#divBtnEntrar{ 
+  width:253px;
+  height: 71px;
+  left: 406px;
+  top: 481px;
+  position: absolute;
+  cursor: pointer;
+}
+
+/* LOGIN */
+
+#divLogin {
+  width: 325px;
+  height: 39px;
+  left: 376px;
+  top: 361px;
+  position: absolute;
+}
+#divSenha {
+  width: 325px;
+  height: 39px;
+  left: 376px;
+  top: 440px;
+  position: absolute;
+}
+#divBtnCriar{ 
+width:170px;
+height: 55px;
+left: 572px;
+top: 518px;
+position: absolute;
+}
+#divEsqueciSenha {
+  width: 80px;
+  height: 12px;
+  left: 632px;
+  top: 494px;
+  position: absolute;
+}
+
+.BordaTelaLogin{
+  position: relative;
+  border-style: solid;
+  border-radius: 15px;
+  width: 1060px;
+  height: 662px;
+  height: 600px;
+  background-color: yellow;
+  /*margin-left: 10%;*/
+  background-image: url("sign-in/003_Login.png" );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.BordaTelaLogin input{
+  width: 90%;
+  height: 98%;
+  margin-top: 2px;
+  background-color: #CDD9CB;
+  border: none;
+  font-size: 20px;
+}
+.BordaTelaLogin input:focus{
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+#divBtnEntrarL{ 
+  width:174px;
+  height: 55px;
+  left: 341px;
+  top: 517px;
+  position: absolute;
+}
+
+.pnt {
+  cursor: pointer;
+}
+
+/* CADASTRO */
+
+.BordaTelaCad{
+  position: relative;
+  border-style: none;
+  border-radius: 0px;
+  width: 1060px;
+  height: 662px;
+  height: 600px;
+  background-color: yellow;
+  /*margin-left: 10%;*/
+  background-image: url("register/002_Hall da Fama - Cadastro.png" );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  margin: auto;
+}
+#divNome{ width:326px;
+height: 29px;
+left: 91px;
+top: 144px;position: absolute;
+}
+#divSobrenome{ width:326px;
+height: 29px;
+left: 91px;
+top: 215px;position: absolute;
+}
+.BordaTelaCad #divEmail{ width:326px;
+height: 29px;
+left: 91px;
+top: 283px;position: absolute;
+}
+.BordaTelaCad #divLogin{ width:326px;
+height: 29px;
+left: 91px;
+top: 354px;position: absolute;
+}
+.BordaTelaCad #divSenha{ width:326px;
+height: 29px;
+left: 91px;
+top: 424px;position: absolute;
+}
+#divRepitaSenha{ width:326px;
+height: 29px;
+left: 91px;
+top: 496px;position: absolute;
+}
+
+.BordaTelaCad #divBtnCriar{ width:121px;
+height: 36px;
+left: 112px;
+top: 540px;position: absolute;
+}
+#divBtnVoltar{ width:118px;
+height: 34px;
+left: 266px;
+top: 542px;position: absolute;
+}
+#divBtnEscolher{ width:205px;
+height: 61px;
+left: 690px;
+top: 517px;position: absolute;
+}
+#divBtnSair{ width:50px;
+height: 59px;
+left: 996px;
+top: 527px;position: absolute;
+}
+#divBalao1{ width:89px;
+  height: 118px;
+  left: 592px;
+  top: 362px;
+  position: absolute;
+  background-image: url("register/Balao_Vermelho.png" );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#divBalao2{ width:89px;
+height: 118px;
+left: 699px;
+top: 362px;position: absolute;
+background-image: url("register/Balao_Azul.png" );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#divBalao3{ width:89px;
+height: 118px;
+left: 806px;
+top: 362px;position: absolute;
+background-image: url("register/Balao_Roxo.png" );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#divBalao4{ width:89px;
+height: 118px;
+left: 912px;
+top: 362px;position: absolute;
+background-image: url("register/Balao_Verde.png" );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#div9{ width:232px;
+height: 25px;
+left: 683px;
+top: 323px;position: absolute;
+}
+#divAvatar1{ width:66px;
+height: 58px;
+left: 629px;
+top: 154px;position: absolute;
+background-image: url("register/Avatar 1.png" );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#divAvatar2{ width:66px;
+height: 58px;
+left: 722px;
+top: 154px;position: absolute;
+background-image: url("register/Avatar 2.png" );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#divAvatar3{ width:66px;
+height: 58px;
+left: 815px;
+top: 154px;position: absolute;
+background-image: url("register/Avatar 3.png" );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#divAvatar4{ width:66px;
+height: 58px;
+left: 908px;
+top: 154px;position: absolute;
+background-image: url("register/Avatar 4.png" );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#divAvatar5{ width:66px;
+height: 58px;
+left: 629px;
+top: 239px;position: absolute;
+background-image: url("register/Avatar 5.png" );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#divAvatar6{ width:66px;
+height: 58px;
+left: 722px;
+top: 239px;position: absolute;
+background-image: url("register/Avatar 6.png" );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#divAvatar7{ width:66px;
+height: 58px;
+left: 815px;
+top: 239px;position: absolute;
+background-image: url("register/Avatar 7.png" );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#divAvatar8{ width:66px;
+height: 58px;
+left: 908px;
+top: 239px;position: absolute;
+background-image: url("register/Avatar 8.png" );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.BordaTelaCad input[type="text"]{
+  width: 90%;
+  height: 98%;
+  margin-top: 2px;
+  background-color: #CDD9CB;
+  border: none;
+}
+.BordaTelaCad input[type=text]:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+.cor{
+  background-color: #CDD9CB;
+}

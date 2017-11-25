@@ -12,6 +12,8 @@ angular.module('myApp', [
   'myApp.quiz',
   'myApp.shop',
   'myApp.admin',
+  'myApp.register',
+  'myApp.intro',
 
   'myApp.user',
   'myApp.api',

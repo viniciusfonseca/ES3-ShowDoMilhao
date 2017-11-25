@@ -13,6 +13,28 @@ angular.module('myApp.signIn', ['ngRoute'])
 
     .controller('signInCtrl', function($scope, User, $location) {
 
+        Object.assign($scope, {
+            logging: false,
+
+            showLogin() {
+                $scope.logging = true
+            },
+
+            login() {
+                User.login({
+                    email: $scope.email,
+                    password: $scope.password
+                }).then(function(res) {
+                    console.log('LOGIN', res)
+                    $location.path('/intro')
+                })
+            },
+
+            register() {
+                $location.path('/register')
+            }
+        })
+
         $scope.submit = function(){
             // alert(JSON.stringify($scope.user));
 
