@@ -51,8 +51,20 @@ angular.module('myApp.quiz', ['ngRoute'])
                     
                 })
         }
+
+        $scope.isGameOver = function() {
+            if ($rootScope.user.pontos <= 0) {
+                $rootScope.user.pontos = 0
+            }
+
+        }
+
         $scope.skip = function() {
-            $rootScope.user.pontos -= 50
+            $rootScope.user.pontos -= 5
+        }
+
+        $scope.leave = function() {
+            $location.url('/sign-in')
         }
 
         $scope.helpScore = {

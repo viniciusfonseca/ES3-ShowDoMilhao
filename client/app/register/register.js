@@ -10,6 +10,6 @@ angular.module('myApp.register', ['ngRoute'])
 .controller('registerCtrl', function($scope, User, $location) {
 
     $scope.back = function() {
-        $location.hash('/sign-in')
+        $location.url('/sign-in')
     }
 })
