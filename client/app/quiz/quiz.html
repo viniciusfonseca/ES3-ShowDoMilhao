@@ -3,25 +3,26 @@
 	<div id="div2" data-u="AVATAR"></div>
 	<div id="div3" data-u="?1"></div>
 	<div id="div4" data-u="?2"></div>
-	<div id="div5" data-u="?3" class="pnt"></div>
+	<div id="div5" data-u="RESPOSTA" class="pnt" ng-click="submitAnswer()" ></div>
 	<div id="div6" data-u="VOLTAR"></div>
-	<div id="div7" data-u="SAIR"></div>
+	<a href="#!/sign-in"><div id="div7" data-u="SAIR"></div></a>
 	<div id="div8" data-u="LOJA"></div>
 	<div id="div9" data-u="?4"></div>
 	<div id="div10" data-u="OPINIÃO"></div>
 	<div id="div11" data-u="SKIP" ng-click="pular()"></div>
 	<div id="div12" data-u="CARTAS"></div>
 	<div id="div13" data-u="?5"></div>
-	<div id="div14" data-u="CONTEUDO PERGUNTA">
+	<div id="div14" data-u="CONTEUDO PERGUNTA" style="padding-top: 20px">
 		{{ quiz.pergunta }}
 		<md-radio-group
-		layout-margin
-		ng-model="answer">
+			layout-margin
+			ng-model="answer">
 			<md-radio-button ng-repeat="item in quiz.alternativas"
-							ng-value="{{ fromCharCode(65 + $index) }}" class="md-primary">
+							ng-value="item.alternativa" class="md-primary">
 				{{ fromCharCode(65 + $index) }}) {{item.alternativa}}
 			</md-radio-button>
 		</md-radio-group>
+		<span ng-show="!!quiz.pergunta" style="position:relative;top: 60px">Tempo: <progress value="{{timerem}}" max="45"></progress></span>
 	</div>
 
 </div>

@@ -13,17 +13,41 @@ angular.module('myApp.quiz', ['ngRoute'])
 
     .controller('quizCtrl', function ($scope, $mdDialog, api, $http) {
 
+        var intervalId = null
+
         $scope.fetchQuestion = function() {
             $http.get(`${api}/pergunta/random`).then(function(res) {
                 console.log(res.data)
 
                 $scope.quiz = res.data[0]
+                $scope.timerem = 45
+
+                intervalId = setInterval(function() {
+                    $scope.timerem--
+                    $scope.$apply()
+
+                    if ($scope.timerem == 0) {
+
+                    }
+                }, 1000)
             })
         }
 
         $scope.fromCharCode = function(n) { return String.fromCharCode(n) }
 
         $scope.fetchQuestion()
+
+        $scope.quiz = {}
+
+        $scope.submitAnswer = function() {
+            if (!$scope.answer) { return }
+            console.log('ANSWER', $scope.answer)
+
+            $http.get(`${api}/pergunta/${quiz.id_pergunta}/alternativa/${id_alternativa}`)
+                .then(function(res) {
+                    console.log('RESPONSE ANSWER', res.data)
+                })
+        }
 
         $scope.helpScore = {
             card: -10,
@@ -91,34 +115,6 @@ angular.module('myApp.quiz', ['ngRoute'])
         }
 
 
-        $scope.quiz = {
-            question_ID: 23,
-            question: "Lorem ipsum dolor sit amet, ne quod novum mei. Sea omnium invenire mediocrem at, in lobortis conclusionemque nam. Ne deleniti appetere reprimique pro, inani labitur disputationi te sed. At vix sale omnesque, id pro labitur reformidans accommodare, cum labores honestatis eu. Nec quem lucilius in, eam praesent reformidans no. Sed laudem aliquam ne.",
-            alternatives: [
-                {
-                    alternative_ID: "a",
-                    alternative: "A Lorem ipsum dolor sit amet "
-                },
-                {
-                    alternative_ID: "b",
-                    alternative: "B Lorem ipsum dolor sit amet"
-                },
-                {
-                    alternative_ID: "c",
-                    alternative: "C Lorem ipsum dolor sit amet"
-                },
-                {
-                    alternative_ID: "d",
-                    alternative: "D Lorem ipsum dolor sit amet"
-                }
-            ]
-        };
-
-        $scope.submit = function () {
-            alert(JSON.stringify($scope.answer))
-        };
-
-
 
         $scope.user = {
             user_ID: 1,
@@ -159,12 +155,6 @@ angular.module('myApp.quiz', ['ngRoute'])
                 }
 
             ]
-        };
-
-        $scope.answer = {
-            user_ID: $scope.user.user_ID,
-            question_ID: $scope.quiz.question_ID,
-            alternative: null
         };
 
 
