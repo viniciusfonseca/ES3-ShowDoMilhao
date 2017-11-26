@@ -11,7 +11,19 @@ angular.module('myApp.quiz', ['ngRoute'])
         });
     }])
 
-    .controller('quizCtrl', function ($scope, $mdDialog) {
+    .controller('quizCtrl', function ($scope, $mdDialog, api, $http) {
+
+        $scope.fetchQuestion = function() {
+            $http.get(`${api}/pergunta/random`).then(function(res) {
+                console.log(res.data)
+
+                $scope.quiz = res.data[0]
+            })
+        }
+
+        $scope.fromCharCode = function(n) { return String.fromCharCode(n) }
+
+        $scope.fetchQuestion()
 
         $scope.helpScore = {
             card: -10,

@@ -408,3 +408,92 @@ background-image: url("register/Avatar 8.png" );
 .cor{
   background-color: #CDD9CB;
 }
+
+/* PERGUNTA */
+
+#div1{ width:82px;
+  height: 20px;
+  left: 41px;
+  top: 29px;position: absolute;
+  }
+  #div2{ width:70px;
+  height: 63px;
+  left: 48px;
+  top: 57px;position: absolute;
+  }
+  #div3{ width:46px;
+  height: 26px;
+  left: 61px;
+  top: 127px;position: absolute;
+  }
+  #div4{ width:35px;
+  height: 29px;
+  left: 6px;
+  top: 547px;position: absolute;
+  }
+  #div5{ width:155px;
+  height: 49px;
+  left: 374px;
+  top: 444px;position: absolute;
+  }
+  #div6{ width:154px;
+  height: 50px;
+  left: 812px;
+  top: 527px;position: absolute;
+  }
+  #div7{ width:45px;
+  height: 60px;
+  left: 983px;
+  top: 528px;position: absolute;
+  }
+  #div8{ width:63px;
+  height: 61px;
+  left: 860px;
+  top: 421px;position: absolute;
+  }
+  #div9{ width:45px;
+  height: 38px;
+  left: 944px;
+  top: 361px;position: absolute;
+  }
+  #div10{ width:43px;
+  height: 37px;
+  left: 945px;
+  top: 293px;position: absolute;
+  }
+  #div11{ width:39px;
+  height: 31px;
+  left: 947px;
+  top: 223px;position: absolute;
+  }
+  #div12{ width:39px;
+  height: 34px;
+  left: 949px;
+  top: 154px;position: absolute;
+  }
+  #div13{ width:143px;
+  height: 74px;
+  left: 900px;
+  top: 63px;position: absolute;
+  }
+  #div14 {
+      width: 496px;
+      height: 241px;
+      left: 274px;
+      top: 135px;
+      position: absolute;
+  }
+
+  .BordaTelaPergunta{
+    position: relative;
+    border-style: none;
+    border-radius: 15px;
+    width: 1060px;
+    height: 662px;
+    height: 600px;
+    background-color: yellow;
+    /*margin-left: 10%;*/
+    background-image: url("assets/007_Pergunta_Tour.png" );
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }

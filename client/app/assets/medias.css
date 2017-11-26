@@ -1,0 +1,717 @@
+﻿/* Large screens ———– */
+@media only screen
+and (min-width : 1366px) {
+
+	/* Tela: index*/
+	#Balao{
+		width: 600px;
+		height:300px;
+	}
+	
+	#Faixa{
+		width: 900px;
+		height:100px;
+	}
+	#BotaoEntrar
+	{
+		height:100px;
+		width:300px;
+	
+	}
+	
+	/*Tela: Login*/
+	#Balao2{
+		width: 450px;
+		height:300px;
+	}
+	
+	#Banner
+	{
+		width:1050px;
+		height:90px;
+		
+	}
+	
+	#FaixaLogin
+	{
+		width:510px;
+		height:120px;
+		
+	}#Nick
+	{
+		width:50px;
+		height:20px;
+		
+	}
+	
+	#Senha
+	{
+		width:50px;
+		height:20px;;
+		
+	}
+	
+	#EsqueciSenha
+	{
+		width:120px;
+		height:25px;
+		
+	}
+	
+	#BotaoEntrar2
+	{
+		width:150px;
+		height:100px;
+		
+	}
+	
+	#BotaoCriarConta2
+	{
+		width:150px;
+		height:100px;
+		
+	}
+	#Sair1
+	{
+		width:40px;
+		height:40px;
+		
+	}
+	
+	
+	/* Tela: Cadastro*/
+	
+	#FaixaCadastro
+	{
+		
+		width:550px;
+		height:120px;
+		
+	}
+	
+	#LabelNome
+	{
+		width:50px;
+		height:30px;
+		
+	}
+	
+	#LabelSobrenome
+	{
+		width:100px; 
+		height:30px; 
+		
+	}
+	
+	#LabelEmail
+	{
+		width:50px; 
+		height:30px;  
+		
+	}
+	
+	#LabelLogin
+	{
+		width:50px; 
+		height:30px; 
+		
+	}
+	
+	#LabelSenha
+	{
+		width:50px;
+		height:30px; 
+	}
+	
+	#LabelRepitaSenha
+	{
+		width:100px;
+		height:40px;
+	}
+	
+	#BotaoCriarConta
+	{
+		width:220px; 
+		height:120px;
+		
+	}
+	
+	#BotaoVoltar
+	{
+		width:220px;
+		height:100px;
+	}
+	
+	#FaixaAvatares
+	{
+		
+		width:783px;
+		height:120px;
+	}
+	
+	#LabelEscolharAvatar
+	{
+		width:200px;
+		height:30px;
+		
+	}
+	
+	#LabelEscolhaBalao
+	{
+		width:200px;
+		height:30px;
+	}
+	
+	#BotaoEscolher
+	{
+		width:250px;
+		height:90px;
+		
+	}
+	
+	#Sair3
+	{
+		width:50px;
+		height:50px;
+	}
+	
+	/*Tela: Falha Login*/
+	#Balao3
+	{
+		width:500px;
+		height:300px;
+		
+	}
+	
+	#Banner2
+	{
+		width:1050px; 
+		height:90px;
+	}
+	
+	#FaixaLogin2
+	{
+		width:510px; height:120px;
+	}
+	
+	#Exclamação
+	{
+		width:20px; height:70px; 
+	}
+	
+	#LabelFalhaLogin
+	{
+		width:300px; height:50px; 
+	}
+	
+	#BotãoVoltar2
+	{
+		width:200px; 
+		height:100px; 
+		
+	}
+	
+	#Sair2
+	{
+		width:50px;
+		height:50px;
+		
+	}
+	
+	/*Tela: Falha Contexto*/
+	
+	#Mensagem
+	{
+		width:780px;
+		height:250px;
+	}
+	
+	#BotãoComeçarContexto
+	{
+		width:220px;
+		height:100px;
+		
+	}
+	
+	#SairContexto
+	{
+		width:50px;
+		height:50px;
+		
+	}
+	/*Tela: Loja*/
+	#Produto1
+	{
+		width:180px;
+		height:150px;
+		
+		
+	}
+	
+	#Preco1
+	{
+		width:80px;
+		height:50px;	
+	
+	}
+	
+	#Produto2
+	{
+		width:180px;
+		height:150px;
+		
+		
+	}
+	
+	#Preco2
+	{
+		width:80px;
+		height:50px;	
+	
+	}
+	
+	#Produto3
+	{
+		width:180px;
+		height:150px;
+		
+		
+	}
+	
+	#Preco3
+	{
+		width:80px;
+		height:50px;	
+	
+	}
+	
+	#Produto4
+	{
+		width:50px;
+		height:50px;	
+	
+	}
+	
+	#Produto5
+	{
+		width:50px;
+		height:50px;	
+	
+	}
+	
+	#Produto6
+	{
+		width:50px;
+		height:50px;	
+	
+	}
+	
+	#Produto7
+	{
+		width:50px;
+		height:50px;	
+	
+	}
+	
+	#ImagemAvatarLoja
+	{
+		width:80px;
+		height:100px;
+		
+	}
+	
+	#ImagemPontosLoja
+	{
+		width:80px;
+		height:35px;
+	}
+	
+	#BotaoLoja
+	{
+		width:50px;
+		height:50px;
+	}
+	
+	#IconeMusicaLoja
+	{
+		width:50px;
+		height:50px;
+	}
+	
+	#IconeSomLoja
+	{
+		width:50px;
+		height:50px;
+	}
+	
+	#IconeInterrogaçãoLoja
+	{
+		width:50px;
+		height:50px;
+	}
+	
+	#BotãoRespostaLoja
+	{
+		width:200px;
+		height:100px;
+	}
+	
+	#BotaoVoltarLoja
+	{
+		width:200px;
+		height:100px;
+	}
+	
+	#SairLoja
+	{
+		width:50px;
+		height:50px;
+		
+	}
+	/*Tela: Perguntas 01  a 08*/
+	#Pergunta01
+	{
+		width:650px;
+		height:200px;
+	}
+	
+	#ImagemAvatar
+	{
+		width:100px;
+		height:130px;
+		
+	}
+	
+	#ImagemPontos
+	{
+		width:100px;
+		height:50px;
+	}
+	
+	#BotaoResposta
+	{
+		width:200px;
+		height:80px;
+	}
+	
+	#Botao
+	{
+		width:50px;
+		height:50px;
+	}
+	
+	#IconeMusica
+	{
+		width:50px;
+		height:50px;
+	}
+	
+	#IconeSom
+	{
+		width:50px;
+		height:50px;
+	}
+	
+	#IconeInterrogação
+	{
+		width:50px;
+		height:50px;
+	}
+	
+	#BotaoVoltar2
+	{
+		width:200px;
+		height:80px;
+	}
+	
+	#Sair4
+	{
+		width:50px;
+		height:50px;
+		
+	}
+	#Icone_interrogacao
+	{
+		width:30px;
+		height:50px;
+	}
+	
+	#LabelHallDaFama
+	{
+		width:150px;
+		height:30px;
+	}
+	
+	#BotaoCartas
+	{
+		width:50px;
+		height:50px;
+		
+	}
+	
+	#LabelCartas
+	{
+		width:40px;
+		height:40px;
+		
+	}
+	
+	#BotaoPular
+	{
+		width:50px;
+		height:50px;
+		
+	}
+	
+	#LabelPular
+	{
+		width:40px;
+		height:40px;
+		
+	}
+	
+	#BotaoConselheiros
+	{
+		width:50px;
+		height:50px;
+		
+	}
+	#LabelConselheiros
+	{
+		width:100px;
+		height:40px;
+		
+	}
+	#BotaoOpiniãoPopular
+	{
+		width:50px;
+		height:50px;
+		
+	}
+	
+	#LabelOpiniãoPopular
+	{
+		width:100px;
+		height:40px;
+		
+	}
+	
+	#BotãoELabelLoja
+	{
+		width:80px;
+		height:100px;
+	}
+	
+	/*Tela: Pergunta Tour*/
+	#AmericadoNorteEstrela01
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#AmericadoNorteEstrela02
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#AmericadoNorteEstrela03
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#AmericadoNorteEstrela04
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#AmericadoNorteEstrela05
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#AmericadoSulEstrela01
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#AmericadoSulEstrela02
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#AmericadoSulEstrela03
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#AmericadoSulEstrela04
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#AmericadoSulEstrela05
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#OceaniaEstrela01
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#OceaniaEstrela02
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#OceaniaEstrela03
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#OceaniaEstrela04
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#OceaniaEstrela05
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	
+	#AfricaEstrela01
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#AfricaEstrela02
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#AfricaEstrela03
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#AfricaEstrela04
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#AfricaEstrela05
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#AsiaEstrela01
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#AsiaEstrela02
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#AsiaEstrela03
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#AsiaEstrela04
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#AsiaEstrela05
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#EuropaEstrela01
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#EuropaEstrela02
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#EuropaEstrela03
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#EuropaEstrela04
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+	#EuropaEstrela05
+	{
+		width:30px;
+		height:30px;
+		
+	}
+	
+}

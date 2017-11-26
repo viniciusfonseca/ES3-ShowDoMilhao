@@ -1,0 +1,190 @@
+#teste{
+    width:300px;
+    height:200px;
+    padding:5px;
+    border:1px solid #333;
+    background-image:url(fotos/001_comecar.png);
+    background-size:210px 210px;
+    background-repeat:no-repeat;
+}
+
+#conteudo1{
+	float: left ;
+	margin: 1em;
+	font-size: 20px;
+	width: 13%;
+	box-sizing: border-box;
+	text-align: justify;
+}
+#PosicaoAvatarEPontos{
+	float: left ;
+	margin: 1em;
+	font-size: 22px;
+	width: 12%;
+	box-sizing: border-box;
+	text-align: justify;
+}
+#conteudo2{
+	background-image:  url(Fotos/Fundo_Form_transparent.png);
+  background-repeat:  no-repeat;
+  background-position: center;
+
+}
+
+#PosicaoMensagem{
+	float: center;margin: 1em;box-sizing: border-box;width: 80%;height:50%;
+
+}
+
+#conteudo7{
+	float: center;margin: 1em;box-sizing: border-box;width: 40%;height:50%;
+
+}
+
+#conteudo8{
+	float: center;margin: 1em;box-sizing: border-box;width: 95%;height:85%;
+
+}
+#conteudo9{
+	float: center;margin: 1em;box-sizing: border-box;width: 95%;height:20%;
+
+}
+
+#PosicaoMensagem{
+	float: center;margin: 1em;box-sizing: border-box;width: 95%;height:12%;
+
+}
+aside{ float: right;margin: 1em;box-sizing: border-box;width: 60%;}
+#PosicaoFormularioAvatares{ float: right;margin: 1em;box-sizing: border-box;width: 57%;}
+#PosiçãoAvatares{ float: right;margin: 1em;box-sizing: border-box;width: 80%;}
+#LabelEscolhaBalao{ float: center;margin: 1em;box-sizing: border-box;width: 80%;}
+#PosiçãoBalões{ float: right;margin: 1em;box-sizing: border-box;width: 85%;}
+#conteudo11{ float: right;margin: 1em;box-sizing: border-box;width: 60%;}
+#conteudo12{ float: right;margin: 1em;box-sizing: border-box;width: 30%;}
+#conteudo13{ float: right;margin: 1em;box-sizing: border-box;width: 30%;}
+#conteudo14{ float: right;margin: 1em;box-sizing: border-box;width: 80%;height=4%}
+#conteudo14{ float: right;margin: 1em;box-sizing: border-box;width: 80%;height=4%}
+#conteudo15{ float: right;margin: 1em;box-sizing: border-box;width: 80%;height=4%}
+#PosiçãoDosComponentes{ float: left;margin: 1em;box-sizing: border-box;width: 50%;height:2%;}
+#PosiçãoDosComponentes2{ float: right;margin: 1em;box-sizing: border-box;width:30%;height:1%;}
+.layoutTabela{border-spacing: 10px;;border: 1px solid black;}
+#PosiçãoSairFalhaLogin{ float: right;margin: 1em;box-sizing: border-box;width: 10%;height=4%}
+#LojaComponente01{ float: right;margin: 1em;box-sizing: border-box;width: 20%;}
+#LojaComponente02{ float: right;margin: 1em;box-sizing: border-box;width: 25%;}
+#LojaComponente03{ float: right;margin: 1em;box-sizing: border-box;width: 30%;}
+#LojaComponente04{ float: left;margin: 1em;box-sizing: border-box;width: 70%;}
+#LojaComponente05{ float: left;margin: 1em;box-sizing: border-box;width: 90;}
+#LojaComponente06{ float: center;margin: 1em;box-sizing: border-box;width: 50;}
+#LojaComponente07{ float: right;margin: 1em;box-sizing: border-box;width: 30;}
+#PosiçãoComponentes{ float: center;margin: 1em;box-sizing: border-box;width: 80;}
+#conteudo3{
+	float: left ;
+	margin: 1em;
+	font-size: 10px;
+	width: 70%;
+	box-sizing: border-box;
+	text-align: justify;
+	height=4%
+}
+
+#PosiçãoMensagemPerguntaTour{
+	float: left ;
+	margin: 1em;
+	font-size: 10px;
+	width: 80%;
+	box-sizing: border-box;
+	text-align: justify;
+	height=4%
+}
+
+#PosiçãoBotaoResposta
+{
+	float: right ;
+	margin: 1em;
+	font-size: 10px;
+	width: 70%;
+	box-sizing: border-box;
+	text-align: justify;
+	height=4%
+}
+#PosiçãoBotaoResposta2
+{
+	float: right ;
+	margin: 1em;
+	font-size: 20px;
+	width: 50%;
+	box-sizing: border-box;
+	text-align: justify;
+	height=7%
+}
+#PosiçãoBotaoComponentes
+{
+	float: right ;
+	margin: 1em;
+	font-size: 15px;
+	width: 85%;
+	box-sizing: border-box;
+	text-align: justify;
+	height:4%
+}
+#PosiçãoBotaoComponentes2
+{
+	float: right ;
+	margin: 1em;
+	font-size: 15px;
+	width: 95%;
+	box-sizing: border-box;
+	text-align: justify;
+	height:4%
+}
+#conteudo4{
+	float: left;
+	margin: 1em;
+	font-size: 20px;
+	width: 25;
+	box-sizing: border-box;
+	text-align: justify;
+}
+
+#conteudo5{
+	float: left ;
+	margin: 1em;
+	font-size: 20px;
+	width: 13%;
+	box-sizing: border-box;
+	text-align: justify;
+}
+
+#conteudo6{
+	float: left ;
+	margin: 1em;
+	font-size: 18px;
+	width:12%;
+	box-sizing: border-box;
+	text-align: justify;
+}
+
+#PosicaoAvatarEPontos{
+	float: left ;
+	margin: 1em;
+	font-size: 19px;
+	width: 11%;
+	box-sizing: border-box;
+	text-align: justify;
+}
+
+#PosicaoAvatarEPontos2{
+	float: left ;
+	margin: 1em;
+	font-size: 19px;
+	width: 11%;
+	box-sizing: border-box;
+	text-align: justify;
+}
+.continentes {
+position:relative; 
+float:left; 
+height:260px; 
+width:535px; 
+margin-left:100px; 
+background:url(fotos/mapa.png) no-repeat left top;}
