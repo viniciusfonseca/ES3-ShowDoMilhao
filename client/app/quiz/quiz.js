@@ -16,7 +16,7 @@ angular.module('myApp.quiz', ['ngRoute'])
         var intervalId = null
 
         $scope.fetchQuestion = function() {
-            fetch(`${api}/pergunta/random`, { headers: {'Authentication': $rootScope.token } }).then(function(res){ return res.json() })
+            fetch(`${api}/pergunta/random`, { headers: {'Authorization': 'Bearer ' + $rootScope.token } }).then(function(res){ return res.json() })
             .then(function(res) {
                 console.log('RANDOM RESPONSE',res.data)
 
@@ -44,7 +44,7 @@ angular.module('myApp.quiz', ['ngRoute'])
             if (!$scope.answer) { return }
             console.log('ANSWER', $scope.answer)
 
-            fetch(`${api}/pergunta/${$scope.quiz.id_pergunta}/alternativa/${$scope.answer}`, { headers: {'Authentication': $rootScope.token } })
+            fetch(`${api}/pergunta/${$scope.quiz.id_pergunta}/alternativa/${$scope.answer}`, { headers: {'Authorization': 'Bearer ' + $rootScope.token } })
             .then(function(r) { return r.json() })
                 .then(function(res) {
                     console.log('RESPONSE ANSWER', res.data)

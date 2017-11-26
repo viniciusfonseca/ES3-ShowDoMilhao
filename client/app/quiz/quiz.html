@@ -1,11 +1,11 @@
 <div class="BordaTelaPergunta margem" id="divJogo" ng-style="">
 	<div id="div1" data-u="NOME" style="text-align:center">{{ $root.user.username }}</div>
-	<div id="div2" data-u="AVATAR" ng-style="{'background-image': 'url('+ user.nome +')'}"></div>
+	<div id="div2" data-u="AVATAR" ng-style="{'background-image': 'url(register/Avatar%20'+ $root.user.avatar +'.png)','background-size':'contain', 'background-position':'center'}"></div>
 	<div id="div3" data-u="PONTOS" style="width:90px;font-size:12px;">Pontos: {{ $root.user.pontos }}</div>
 
 	<div id="STARS-Q" style="position: absolute; top: 225px; width: 165px; height: 360px; left: 10px;">
-		<div ng-repeat="item in []">
-
+		<div ng-repeat="continent in ['america', 'europa', 'asia', 'america do sul', 'africa', 'oceania']" style="margin-top: 27px; height: 32px;">
+			<span ng-repeat="star in $root.game.continents[ continent ]"></span>
 		</div>
 		<div id="div4" data-u="?2"></div>
 	</div>

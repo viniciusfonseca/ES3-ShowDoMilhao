@@ -22,13 +22,18 @@ angular.module('myApp', [
 .run(function($rootScope) {
   var user = localStorage.getItem('user')
   var token = localStorage.getItem('token')
+  var game = localStorage.getItem('game')
 
   console.log('user',user)
   console.log('token',token)
 
   if (token) {
-    $rootScope.user = JSON.parse(user)
-    $rootScope.token = token
+    try {
+      $rootScope.user = JSON.parse(user)
+      $rootScope.token = token
+      $rootScope.game = game
+    }
+    catch(e) {}
   }
 })
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

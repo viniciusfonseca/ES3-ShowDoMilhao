@@ -29,11 +29,13 @@ angular.module('myApp.signIn', ['ngRoute'])
                     password: $scope.password
                 }).then(function(res) {
                     console.log('LOGIN', res)
-                    $rootScope.user = res.user
-                    $rootScope.token = res.token
-                    localStorage.setItem('token', res.token)
-                    localStorage.setItem('user', JSON.stringify(res.user))
-                    $location.path('/intro')
+                    if (res.user && res.token) {
+                        $rootScope.user = res.user
+                        $rootScope.token = res.token
+                        localStorage.setItem('token', res.token)
+                        localStorage.setItem('user', JSON.stringify(res.user))
+                        $location.path('/intro')
+                    }
                 })
             },
 

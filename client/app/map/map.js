@@ -25,7 +25,7 @@ angular.module('myApp.map', ['ngRoute'])
 
         $scope.clickEvent = function(event) {
             if (continents.indexOf(event.target.id) !== -1) {
-                $rootScope.game.continents.push(event.target.id)
+                $rootScope.game.continent = event.target.id
                 $rootScope.game.questionCount = 0
 
                 $location.path('/quiz')
