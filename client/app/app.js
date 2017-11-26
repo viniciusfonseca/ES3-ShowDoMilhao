@@ -19,7 +19,16 @@ angular.module('myApp', [
   'myApp.api',
   'myApp.version'
 ]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+config(['$locationProvider', '$routeProvider', function($rootScope, $locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
+
+  var user = localStorage.getItem('user')
+  var token = localStorage.getItem('token')
+
+  if (token) {
+    $rootScope.user = user
+    $rootScope.token = token
+  }
+
   $routeProvider.otherwise({redirectTo: '/sign-in'});
 }]);

@@ -31,6 +31,8 @@ angular.module('myApp.signIn', ['ngRoute'])
                     console.log('LOGIN', res)
                     $rootScope.user = res.user
                     $rootScope.token = res.token
+                    localStorage.setItem('token', res.token)
+                    localStorage.setItem('user', JSON.stringify(res.user))
                     $location.path('/intro')
                 })
             },

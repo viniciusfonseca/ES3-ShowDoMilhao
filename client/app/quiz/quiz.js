@@ -11,13 +11,14 @@ angular.module('myApp.quiz', ['ngRoute'])
         });
     }])
 
-    .controller('quizCtrl', function ($scope, $mdDialog, api, $http) {
+    .controller('quizCtrl', function ($scope, $mdDialog, api, $http, $rootScope) {
 
         var intervalId = null
 
         $scope.fetchQuestion = function() {
-            $http.get(`${api}/pergunta/random`).then(function(res) {
-                console.log(res.data)
+            fetch(`${api}/pergunta/random`, { headers: {'Authentication': $rootScope.token } }).then(function(res){ return res.json() })
+            .then(function(res) {
+                console.log('RANDOM RESPONSE',res.data)
 
                 $scope.quiz = res.data[0]
                 $scope.timerem = 45
