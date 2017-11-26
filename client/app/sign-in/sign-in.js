@@ -11,7 +11,10 @@ angular.module('myApp.signIn', ['ngRoute'])
         });
     }])
 
-    .controller('signInCtrl', function($scope, User, $location) {
+    .controller('signInCtrl', function($scope, User, $location, $rootScope) {
+
+        $rootScope.user = {}
+        delete $rootScope.token
 
         Object.assign($scope, {
             logging: false,
@@ -26,6 +29,8 @@ angular.module('myApp.signIn', ['ngRoute'])
                     password: $scope.password
                 }).then(function(res) {
                     console.log('LOGIN', res)
+                    $rootScope.user = res.user
+                    $rootScope.token = res.token
                     $location.path('/intro')
                 })
             },

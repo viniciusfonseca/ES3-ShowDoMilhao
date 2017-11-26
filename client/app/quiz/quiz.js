@@ -43,10 +43,14 @@ angular.module('myApp.quiz', ['ngRoute'])
             if (!$scope.answer) { return }
             console.log('ANSWER', $scope.answer)
 
-            $http.get(`${api}/pergunta/${quiz.id_pergunta}/alternativa/${id_alternativa}`)
+            $http.get(`${api}/pergunta/${$scope.quiz.id_pergunta}/alternativa/${$scope.answer}`)
                 .then(function(res) {
                     console.log('RESPONSE ANSWER', res.data)
+                    
                 })
+        }
+        $scope.skip = function() {
+            $rootScope.user.pontos -= 50
         }
 
         $scope.helpScore = {

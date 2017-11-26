@@ -20,10 +20,13 @@
         return {
             login( credentials ) {
                 return $q(function(resolve, reject) {
-                    fetch( api + '/user/authtoken', {
+                    fetch( api + '/user/token/get', {
                         method: 'POST',
                         mode: 'cors',
-                        body: toForm(credentials)
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(credentials)
                     }).then(r => r.json())
                         .then(resolve)
                         .catch(reject)
