@@ -1,40 +1,41 @@
 <div class="BordaTelaCad" id="divJogo">
     <div id="divNome">
-        <input type="text" name="" class="cor" >
+        <input type="text" name="" class="cor" ng-model="name">
     </div>
     <div id="divSobrenome">
-        <input type="text" name="" >
+        <input type="text" name="" ng-model="sobrenome">
     </div>
     <div id="divEmail">
-        <input type="text" name="" >
+        <input type="text" name="" ng-model="email">
     </div>
     <div id="divLogin">
-        <input type="text" name="" >
+        <input type="text" name="" ng-model="login">
     </div>
     <div id="divSenha">
-        <input type="text" name="" >
+        <input type="text" name="" ng-model="password">
     </div>
     <div id="divRepitaSenha">
-        <input type="text" name="" >
+        <input type="text" name="" ng-model="password_r">
     </div>
     <div id="divBtnCriar" class="pnt"></div>
-    <div id="divBtnVoltar" class="pnt"></div>
+    <div id="divBtnVoltar" class="pnt" ng-click="back()"></div>
     <div id="divBtnEscolher" class="pnt"></div>
-    <div id="divBtnSair" class="pnt"></div>
+    <div id="divBtnSair" class="pnt" ng-click="back()"></div>
 
     <!-- BALOES -->
-    <div id="divBalao1" class="pnt"></div>
-    <div id="divBalao2" class="pnt"></div>
-    <div id="divBalao3" class="pnt"></div>
-    <div id="divBalao4" class="pnt"></div>
+    <div id="divBalao1" class="pnt" ng-style="{'border': '2px solid' + (balao == 1 && 'black')}" ng-click="balao = 1"></div>
+    <div id="divBalao2" class="pnt" ng-style="{'border': '2px solid' + (balao == 2 && 'black')}" ng-click="balao = 2"></div>
+    <div id="divBalao3" class="pnt" ng-style="{'border': '2px solid' + (balao == 3 && 'black')}" ng-click="balao = 3"></div>
+    <div id="divBalao4" class="pnt" ng-style="{'border': '2px solid' + (balao == 4 && 'black')}" ng-click="balao = 4"></div>
     
     <!-- AVATARES -->
-    <div id="divAvatar1" class="pnt"></div>
-    <div id="divAvatar2" class="pnt"></div>
-    <div id="divAvatar3" class="pnt"></div>
-    <div id="divAvatar4" class="pnt"></div>
-    <div id="divAvatar5" class="pnt"></div>
-    <div id="divAvatar6" class="pnt"></div>
-    <div id="divAvatar7" class="pnt"></div>
-    <div id="divAvatar8" class="pnt"></div>
+
+    <div id="divAvatar1" class="pnt" ng-style="{'border': '2px solid' + (avatar == 1 && 'black')}" ng-click="avatar = 1"></div>
+    <div id="divAvatar2" class="pnt" ng-style="{'border': '2px solid' + (avatar == 2 && 'black')}" ng-click="avatar = 2"></div>
+    <div id="divAvatar3" class="pnt" ng-style="{'border': '2px solid' + (avatar == 3 && 'black')}" ng-click="avatar = 3"></div>
+    <div id="divAvatar4" class="pnt" ng-style="{'border': '2px solid' + (avatar == 4 && 'black')}" ng-click="avatar = 4"></div>
+    <div id="divAvatar5" class="pnt" ng-style="{'border': '2px solid' + (avatar == 5 && 'black')}" ng-click="avatar = 5"></div>
+    <div id="divAvatar6" class="pnt" ng-style="{'border': '2px solid' + (avatar == 6 && 'black')}" ng-click="avatar = 6"></div>
+    <div id="divAvatar7" class="pnt" ng-style="{'border': '2px solid' + (avatar == 7 && 'black')}" ng-click="avatar = 7"></div>
+    <div id="divAvatar8" class="pnt" ng-style="{'border': '2px solid' + (avatar == 8 && 'black')}" ng-click="avatar = 8"></div>
 </div>

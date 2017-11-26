@@ -44,7 +44,8 @@ angular.module('myApp.quiz', ['ngRoute'])
             if (!$scope.answer) { return }
             console.log('ANSWER', $scope.answer)
 
-            $http.get(`${api}/pergunta/${$scope.quiz.id_pergunta}/alternativa/${$scope.answer}`)
+            fetch(`${api}/pergunta/${$scope.quiz.id_pergunta}/alternativa/${$scope.answer}`, { headers: {'Authentication': $rootScope.token } })
+            .then(function(r) { return r.json() })
                 .then(function(res) {
                     console.log('RESPONSE ANSWER', res.data)
                     
