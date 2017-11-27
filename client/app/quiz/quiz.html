@@ -5,7 +5,7 @@
 
 	<div id="STARS-Q" style="position: absolute; top: 225px; width: 165px; height: 360px; left: 10px;">
 		<div ng-repeat="continent in ['america', 'europa', 'asia', 'america do sul', 'africa', 'oceania']" style="margin-top: 27px; height: 32px;">
-			<span ng-repeat="star in $root.game.continents[ continent ]"></span>
+			<span ng-repeat="star in $root.game.continents[ continent ]" style="background-position:center;background-size:contain;width:30px;height:30px;"></span>
 		</div>
 		<div id="div4" data-u="?2"></div>
 	</div>
@@ -17,20 +17,28 @@
 	<div id="div8" data-u="LOJA"></div>
 	<div id="div9" data-u="?4"></div>
 	<div id="div10" data-u="OPINIÃO"></div>
-	<div id="div11" data-u="SKIP" ng-click="pular()"></div>
+	<div id="div11" data-u="SKIP" class="pnt" ng-click="pular()"></div>
 	<div id="div12" data-u="CARTAS"></div>
 	<div id="div13" data-u="?5"></div>
 	<div id="div14" data-u="CONTEUDO PERGUNTA" style="padding-top: 20px">
-		{{ quiz.pergunta }}
-		<md-radio-group
-			layout-margin
-			ng-model="answer">
-			<md-radio-button ng-repeat="item in quiz.alternativas"
-							ng-value="item.alternativa" class="md-primary">
-				{{ fromCharCode(65 + $index) }}) {{item.alternativa}}
-			</md-radio-button>
-		</md-radio-group>
-		<span ng-show="!!quiz.pergunta" style="position:relative;top: 60px">Tempo: <progress value="{{timerem}}" max="45"></progress></span>
+		<div ng-show="msgAlt == 0">
+			{{ quiz.pergunta }}
+			<md-radio-group
+				ng-show="!msgAlt"
+				layout-margin
+				ng-model="answer">
+				<md-radio-button ng-repeat="item in quiz.alternativas"
+								ng-value="item.id_alternativa" class="md-primary">
+					{{ fromCharCode(65 + $index) }}) {{item.alternativa}}
+				</md-radio-button>
+			</md-radio-group>
+			<span ng-show="!!quiz.pergunta" style="position:relative;top: 60px">
+				Tempo: <progress value="{{timerem}}" max="45"></progress>
+			</span>
+		</div>
+		<p style="text-align:center">
+			<span ng-style="{display:'inline-block',height:'40px',width:'40px','background-position':'center','background-size':'contain','background-image':getRetAltImg()}"></span> {{ retAlt }}
+		</p>
 	</div>
 
 </div>

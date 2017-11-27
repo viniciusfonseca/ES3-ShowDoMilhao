@@ -11,16 +11,16 @@ angular.module('myApp.quiz', ['ngRoute'])
         });
     }])
 
-    .controller('quizCtrl', function ($scope, $mdDialog, api, $http, $rootScope) {
+    .controller('quizCtrl', function ($scope, $mdDialog, api, $http, $rootScope, $route) {
 
         var intervalId = null
 
         $scope.fetchQuestion = function() {
             fetch(`${api}/pergunta/random`, { headers: {'Authorization': 'Bearer ' + $rootScope.token } }).then(function(res){ return res.json() })
             .then(function(res) {
-                console.log('RANDOM RESPONSE',res.data)
+                console.log('RANDOM RESPONSE',res)
 
-                $scope.quiz = res.data[0]
+                $scope.quiz = res[0]
                 $scope.timerem = 45
 
                 intervalId = setInterval(function() {
@@ -39,7 +39,13 @@ angular.module('myApp.quiz', ['ngRoute'])
         $scope.fetchQuestion()
 
         $scope.quiz = {}
+        $scope.msgAlt = 0
 
+        $scope.getRetAltImg = function() {
+            if ($scope.msgAlt == 1) { return 'url(assets/check.svg)' }
+            if ($scope.msgAlt == 2) { return 'url(assets/wrong.png)' }
+        }
+ 
         $scope.submitAnswer = function() {
             if (!$scope.answer) { return }
             console.log('ANSWER', $scope.answer)
@@ -47,7 +53,19 @@ angular.module('myApp.quiz', ['ngRoute'])
             fetch(`${api}/pergunta/${$scope.quiz.id_pergunta}/alternativa/${$scope.answer}`, { headers: {'Authorization': 'Bearer ' + $rootScope.token } })
             .then(function(r) { return r.json() })
                 .then(function(res) {
-                    console.log('RESPONSE ANSWER', res.data)
+                    var entry = Object.entries(res)[0]
+                    var isCorrect = +(entry[0])
+                    $scope.retAlt = entry[1]
+
+                    $scope.msgAlt = isCorrect ? 1 : 2
+                    console.log('RESPONSE ANSWER', res)
+                    $rootScope.game.continents[$rootScope.game.continent]++
+                    $rootScope.user.pontos += 5
+                    $scope.$apply()
+
+                    setTimeout(function() {
+                        $route.reload()
+                    }, 1200)
                     
                 })
         }
@@ -59,8 +77,9 @@ angular.module('myApp.quiz', ['ngRoute'])
 
         }
 
-        $scope.skip = function() {
+        $scope.pular = function() {
             $rootScope.user.pontos -= 5
+            $route.reload()
         }
 
         $scope.leave = function() {

@@ -27,7 +27,7 @@ angular.module('myApp.map', ['ngRoute'])
             if (continents.indexOf(event.target.id) !== -1) {
                 $rootScope.game.continent = event.target.id
                 $rootScope.game.questionCount = 0
-
+                localStorage.setItem('game', JSON.stringify($rootScope.game))
                 $location.path('/quiz')
             }
         }

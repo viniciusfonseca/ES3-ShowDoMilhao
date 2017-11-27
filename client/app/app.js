@@ -31,7 +31,7 @@ angular.module('myApp', [
     try {
       $rootScope.user = JSON.parse(user)
       $rootScope.token = token
-      $rootScope.game = game
+      $rootScope.game = JSON.parse(game)
     }
     catch(e) {}
   }
