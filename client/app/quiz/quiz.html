@@ -4,8 +4,8 @@
 	<div id="div3" data-u="PONTOS" style="width:90px;font-size:12px;">Pontos: {{ $root.user.pontos }}</div>
 
 	<div id="STARS-Q" style="position: absolute; top: 225px; width: 300px; height: 360px; left: 0px;">
-		<div id="star-{{continent}}" ng-repeat="continent in ['north_america', 'south_america', 'oceania', 'africa', 'asia', 'europe']" style="margin-top: 27px; height: 32px;">
-			<span ng-repeat="star in mkArray($root.game.continents[ continent ]) track by $index" style="display:inline-block;background-position:center;background-size:contain;width:30px;height:30px;background-image:url(assets/Star.png)"></span>
+		<div id="star-{{continent}}" ng-repeat="continent in ['north_america', 'south_america', 'oceania', 'africa', 'asia', 'europa']" style="margin-top: 27px; height: 32px;">
+			<span ng-repeat="star in mkArray($root.game.continents[ continent ]) track by $index + continent" style="display:inline-block;background-position:center;background-size:contain;width:30px;height:30px;background-image:url(assets/Star.png)"></span>
 		</div>
 		<div id="div4" data-u="?2"></div>
 	</div>

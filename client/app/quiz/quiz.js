@@ -178,8 +178,8 @@ angular.module('myApp.quiz', ['ngRoute'])
                     // alert(JSON.stringify($scope.data));
                     var alternatives = $scope.quiz.alternativas
 
-                    var correctAlt = alternatives.find(function(c) { return !!c.resposta })
-                    var incorrectAlt = alternatives.find(function(c) { return !c.resposta })
+                    var correctAlt = alternatives.filter(function(c) { return !!c.resposta })[0]
+                    var incorrectAlt = alternatives.filter(function(c) { return !c.resposta })
 
                     for (var i = 0; i < +$scope.data.card_number; i++) {
                         incorrectAlt.pop()

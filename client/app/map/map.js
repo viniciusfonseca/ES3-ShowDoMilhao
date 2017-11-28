@@ -39,6 +39,15 @@ angular.module('myApp.map', ['ngRoute'])
             'asia': "top:150px;left:950px;"
         }
 
+        var endGame = continents.every(function(continent) {
+            return $rootScope.game.continents[continent] >= $scope.continentsMax[continent]
+        })
+
+        if (endGame) {
+            alert('Fim de jogo! Seu placar final: ' + $rootScope.user.pontos)
+            $location.path('/intro')
+        }
+
         $rootScope.game.continents = $rootScope.game.continents || {}
 
         $scope.clickEvent = function(event) {
