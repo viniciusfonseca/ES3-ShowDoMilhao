@@ -60,7 +60,7 @@ angular.module('myApp.quiz', ['ngRoute'])
                     $scope.msgAlt = isCorrect ? 1 : 2
                     console.log('RESPONSE ANSWER', res)
                     $rootScope.game.continents[$rootScope.game.continent]++
-                    $rootScope.user.pontos += 5
+                    $rootScope.user.pontos += isCorrect ? 5 : (-10)
                     $scope.$apply()
 
                     setTimeout(function() {
