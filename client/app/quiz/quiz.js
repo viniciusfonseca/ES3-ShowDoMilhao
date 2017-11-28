@@ -28,6 +28,12 @@ angular.module('myApp.quiz', ['ngRoute'])
             $location.path('/map')
         }
 
+        fetch(`${api}/comprar/list`, { headers: {'Authorization': 'Bearer ' + $rootScope.token } })
+        .then(function(r) { return r.json() })
+        .then(function(r) {
+            console.log(r)
+        })
+
         $scope.fetchQuestion = function() {
             fetch(`${api}/pergunta/random`, { headers: {'Authorization': 'Bearer ' + $rootScope.token } }).then(function(res){ return res.json() })
             .then(function(res) {
@@ -62,7 +68,7 @@ angular.module('myApp.quiz', ['ngRoute'])
         }
 
         $scope.goShop = function() {
-            $location
+            $location.path('/shop')
         }
  
         $scope.submitAnswer = function() {
@@ -120,6 +126,9 @@ angular.module('myApp.quiz', ['ngRoute'])
         };
 
         $scope.showAdvanced = function (ev) {
+
+            if ($scope.usedCard) { return }
+
             $mdDialog.show({
                 controller: DialogController,
                 templateUrl: 'quiz/cartas.html',
@@ -131,7 +140,7 @@ angular.module('myApp.quiz', ['ngRoute'])
                 fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
             })
                 .then(function (answer) {
-                    $scope.status = 'You said the information was "' + answer + '".';
+                    // $scope.status = 'You said the information was "' + answer + '".';
                 }, function () {
                     $scope.status = 'You cancelled the dialog.';
                 });
@@ -164,7 +173,31 @@ angular.module('myApp.quiz', ['ngRoute'])
                     $scope.data.help = "card";
                     $scope.data.score = $scope.helpScore[$scope.data.help];
                     $scope.data.card_number = a;
-                    alert(JSON.stringify($scope.data));
+
+                    console.log('CARTA', $scope.data.card_number)
+                    // alert(JSON.stringify($scope.data));
+                    var alternatives = $scope.quiz.alternativas
+
+                    var correctAlt = alternatives.find(function(c) { return !!c.resposta })
+                    var incorrectAlt = alternatives.find(function(c) { return !c.resposta })
+
+                    for (var i = 0; i < +$scope.data.card_number; i++) {
+                        incorrectAlt.pop()
+                    }
+                    incorrectAlt.push(correctAlt)
+                    incorrectAlt.sort(function(a,b) {
+                        if (a.id_alternativa < b.id_alternativa) { return -1 }
+                        if (a.id_alternativa > b.id_alternativa) { return  1 }
+                        return 0
+                    })
+                    $scope.quiz.alternativas = incorrectAlt
+
+                    $scope.usedCard = true
+
+                    setTimeout(function() {
+                        $mdDialog.hide()
+                        $scope.$apply()
+                    }, 2000)
                 }
             };
 
@@ -178,7 +211,11 @@ angular.module('myApp.quiz', ['ngRoute'])
 
         }
 
-
+        $scope.goShop = function() {
+            $mdDialog.show({
+                controller: function() {}
+            })
+        }
 
         $scope.user = {
             user_ID: 1,
