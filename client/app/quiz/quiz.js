@@ -89,6 +89,7 @@ angular.module('myApp.quiz', ['ngRoute'])
                     $rootScope.user.pontos += isCorrect ? 5 : (-10)
 
                     localStorage.setItem('game', JSON.stringify($rootScope.game))
+                    localStorage.setItem('user',JSON.stringify($rootScope.user))
                     $scope.$apply()
 
                     setTimeout(function() {
@@ -112,6 +113,7 @@ angular.module('myApp.quiz', ['ngRoute'])
 
         $scope.pular = function() {
             $rootScope.user.pontos -= 5
+            localStorage.setItem('user',JSON.stringify($rootScope.user))
             $route.reload()
         }
 
@@ -223,30 +225,39 @@ angular.module('myApp.quiz', ['ngRoute'])
                 clickOutsideToClose: true,
                 template: `<div style="height: 300px" class="flex-row">
                     <md-card>
-                        <md-card-title>
+                        <md-card-title layout="column">
                             <md-card-title-text>
                                 Carta
                             </md-card-title-text>
+                            <md-card-title-media>
+                                <div class="md-media-lg card-media" style="background-image:url(assets/Botao_Cartas.png);background-repeat:no-repeat"></div>
+                            </md-card-title-media>
                         </md-card-title>
                         <md-card-actions layout="row" layout-align="end center">
                             <md-button>Comprar (R$0,50)</md-button>
                         </md-card-actions>
                     </md-card>
                     <md-card>
-                        <md-card-title>
+                        <md-card-title layout="column">
                             <md-card-title-text>
                                 Pulo
                             </md-card-title-text>
+                            <md-card-title-media>
+                                <div class="md-media-lg card-media" style="background-image:url(assets/Botao_Pular.png);background-repeat:no-repeat"></div>
+                            </md-card-title-media>
                         </md-card-title>
                         <md-card-actions layout="row" layout-align="end center">
                             <md-button>Comprar (R$0,50)</md-button>
                       </md-card-actions>
                     </md-card>
                     <md-card>
-                        <md-card-title>
+                        <md-card-title layout="column">
                             <md-card-title-text>
                                 Opinião Pública
                             </md-card-title-text>
+                            <md-card-title-media>
+                                <div class="md-media-lg card-media" style="background-image:url(assets/Botao_Voto_Popular.png);background-repeat:no-repeat"></div>
+                            </md-card-title-media>
                         </md-card-title>
                         <md-card-actions layout="row" layout-align="end center">
                             <md-button>Comprar (R$0,50)</md-button>

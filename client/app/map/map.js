@@ -45,6 +45,7 @@ angular.module('myApp.map', ['ngRoute'])
 
         if (endGame) {
             alert('Fim de jogo! Seu placar final: ' + $rootScope.user.pontos)
+            localStorage.setItem('user',JSON.stringify($rootScope.user))
             $location.path('/intro')
         }
 
