@@ -42,8 +42,16 @@ angular.module('myApp.map', ['ngRoute'])
         $rootScope.game.continents = $rootScope.game.continents || {}
 
         $scope.clickEvent = function(event) {
-            if (continents.indexOf(event.target.id) !== -1) {
-                $rootScope.game.continent = event.target.id
+
+            var continent = event.target.id
+            if (continents.indexOf(continent) !== -1) {
+
+                if ($rootScope.game.continents[continent] >= $scope.continentsMax[continent]) {
+                    alert('Você já coletou as estrelas deste continente!')
+                    return
+                }
+
+                $rootScope.game.continent = continent
                 $rootScope.game.questionCount = 0
                 localStorage.setItem('game', JSON.stringify($rootScope.game))
                 $location.path('/quiz')

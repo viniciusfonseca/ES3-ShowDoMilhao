@@ -11,7 +11,7 @@ angular.module('myApp.quiz', ['ngRoute'])
         });
     }])
 
-    .controller('quizCtrl', function ($scope, $mdDialog, api, $http, $rootScope, $route) {
+    .controller('quizCtrl', function ($scope, $mdDialog, api, $http, $rootScope, $route, $location) {
 
         var intervalId = null
 
@@ -59,6 +59,10 @@ angular.module('myApp.quiz', ['ngRoute'])
         $scope.getRetAltImg = function() {
             if ($scope.msgAlt == 1) { return 'url(assets/check.svg)' }
             if ($scope.msgAlt == 2) { return 'url(assets/wrong.png)' }
+        }
+
+        $scope.goShop = function() {
+            $location
         }
  
         $scope.submitAnswer = function() {
