@@ -15,6 +15,19 @@ angular.module('myApp.quiz', ['ngRoute'])
 
         var intervalId = null
 
+        var continentsMax = {
+            'south_america': 5,
+            'north_america': 6,
+            'europa': 7,
+            'oceania': 5,
+            'africa': 4,
+            'asia': 3
+        }
+
+        $scope.back = function() {
+            $location.path('/map')
+        }
+
         $scope.fetchQuestion = function() {
             fetch(`${api}/pergunta/random`, { headers: {'Authorization': 'Bearer ' + $rootScope.token } }).then(function(res){ return res.json() })
             .then(function(res) {
@@ -34,6 +47,8 @@ angular.module('myApp.quiz', ['ngRoute'])
             })
         }
 
+        $scope.mkArray = function(n) { return Array(n) }
+
         $scope.fromCharCode = function(n) { return String.fromCharCode(n) }
 
         $scope.fetchQuestion()
@@ -44,6 +59,10 @@ angular.module('myApp.quiz', ['ngRoute'])
         $scope.getRetAltImg = function() {
             if ($scope.msgAlt == 1) { return 'url(assets/check.svg)' }
             if ($scope.msgAlt == 2) { return 'url(assets/wrong.png)' }
+        }
+
+        var limitcont = {
+            'asia': 1
         }
  
         $scope.submitAnswer = function() {
@@ -59,8 +78,11 @@ angular.module('myApp.quiz', ['ngRoute'])
 
                     $scope.msgAlt = isCorrect ? 1 : 2
                     console.log('RESPONSE ANSWER', res)
-                    $rootScope.game.continents[$rootScope.game.continent]++
+                    console.log('CONTINENT', $rootScope.game.continent)
+                    $rootScope.game.continents[$rootScope.game.continent] += isCorrect ? 1 : 0
                     $rootScope.user.pontos += isCorrect ? 5 : (-10)
+
+                    localStorage.setItem('game', JSON.stringify(game))
                     $scope.$apply()
 
                     setTimeout(function() {

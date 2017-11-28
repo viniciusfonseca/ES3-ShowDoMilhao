@@ -21,6 +21,15 @@ angular.module('myApp.map', ['ngRoute'])
             'asia'
         ]
 
+        var continentsMax = {
+            'south_america': 5,
+            'north_america': 6,
+            'europa': 7,
+            'oceania': 5,
+            'africa': 4,
+            'asia': 3
+        }
+
         $rootScope.game.continents = $rootScope.game.continents || []
 
         $scope.clickEvent = function(event) {

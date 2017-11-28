@@ -4,8 +4,8 @@
 	<div id="div3" data-u="PONTOS" style="width:90px;font-size:12px;">Pontos: {{ $root.user.pontos }}</div>
 
 	<div id="STARS-Q" style="position: absolute; top: 225px; width: 165px; height: 360px; left: 10px;">
-		<div ng-repeat="continent in ['america', 'europa', 'asia', 'america do sul', 'africa', 'oceania']" style="margin-top: 27px; height: 32px;">
-			<span ng-repeat="star in $root.game.continents[ continent ]" style="background-position:center;background-size:contain;width:30px;height:30px;"></span>
+		<div id="star-{{continent}}" ng-repeat="continent in ['north_america', 'south_america', 'oceania', 'africa', 'asia', 'europe']" style="margin-top: 27px; height: 32px;">
+			<span ng-repeat="star in mkArray($root.game.continents[ continent ]) track by $index" style="display:inline-block;background-position:center;background-size:contain;width:30px;height:30px;background-image:url(assets/Star.png)"></span>
 		</div>
 		<div id="div4" data-u="?2"></div>
 	</div>
@@ -14,7 +14,7 @@
 	<div id="div5" data-u="RESPOSTA" class="pnt" ng-click="submitAnswer()" ></div>
 	<div id="div6" data-u="VOLTAR" class="pnt" ng-click="back()"></div>
 	<a href="#!/sign-in"><div id="div7" data-u="SAIR"></div></a>
-	<div id="div8" data-u="LOJA"></div>
+	<div id="div8" data-u="LOJA" class="png"></div>
 	<div id="div9" data-u="?4"></div>
 	<div id="div10" data-u="OPINIÃO"></div>
 	<div id="div11" data-u="SKIP" class="pnt" ng-click="pular()"></div>
