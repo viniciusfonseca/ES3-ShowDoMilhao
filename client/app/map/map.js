@@ -21,7 +21,7 @@ angular.module('myApp.map', ['ngRoute'])
             'asia'
         ]
 
-        var continentsMax = {
+        $scope.continentsMax = {
             'south_america': 5,
             'north_america': 6,
             'europa': 7,
@@ -30,7 +30,16 @@ angular.module('myApp.map', ['ngRoute'])
             'asia': 3
         }
 
-        $rootScope.game.continents = $rootScope.game.continents || []
+        $scope.continentsPos = {
+            'south_america': "top:390px;left:370px;",
+            'north_america': "top:175px;left:200px;",
+            'europa': "top:150px;left:670px;",
+            'oceania': "top:440px;left:1130px;",
+            'africa': "top:300px;left:680px;",
+            'asia': "top:150px;left:950px;"
+        }
+
+        $rootScope.game.continents = $rootScope.game.continents || {}
 
         $scope.clickEvent = function(event) {
             if (continents.indexOf(event.target.id) !== -1) {

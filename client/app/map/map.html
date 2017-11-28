@@ -3,7 +3,10 @@
     <div class="ng-scope"
         ng-include="'components/img/world-map.svg'" ng-click="clickEvent($event)">
     </div>
-    <div ng-repeat="cnt in ['']">
-        
+    <div id="score-{{cnt}}" ng-repeat="cnt in ['north_america', 'south_america', 'oceania', 'africa', 'asia', 'europa']" style="display:inline-block;position:absolute;height:35px;width:200px;{{continentsPos[cnt]}}">
+        <div style="display:inline-block;background-position:center;background-size:contain;width:30px;height:30px;background-image:url(assets/Star.png)"></div>
+        <h2 style="display:inline-block">
+            {{ $root.game.continents[cnt] }}/{{ continentsMax[cnt] }}
+        </h2>
     </div>
 </div>

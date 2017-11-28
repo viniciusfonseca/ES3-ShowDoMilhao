@@ -60,10 +60,6 @@ angular.module('myApp.quiz', ['ngRoute'])
             if ($scope.msgAlt == 1) { return 'url(assets/check.svg)' }
             if ($scope.msgAlt == 2) { return 'url(assets/wrong.png)' }
         }
-
-        var limitcont = {
-            'asia': 1
-        }
  
         $scope.submitAnswer = function() {
             if (!$scope.answer) { return }
@@ -82,11 +78,16 @@ angular.module('myApp.quiz', ['ngRoute'])
                     $rootScope.game.continents[$rootScope.game.continent] += isCorrect ? 1 : 0
                     $rootScope.user.pontos += isCorrect ? 5 : (-10)
 
-                    localStorage.setItem('game', JSON.stringify(game))
+                    localStorage.setItem('game', JSON.stringify($rootScope.game))
                     $scope.$apply()
 
                     setTimeout(function() {
-                        $route.reload()
+                        if ($rootScope.game.continents[$rootScope.game.continent] == continentsMax[$rootScope.game.continent]) {
+                            $location.path('/map')
+                        }
+                        else {
+                            $route.reload()
+                        }
                     }, 1200)
                     
                 })
