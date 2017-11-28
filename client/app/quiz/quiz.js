@@ -213,7 +213,46 @@ angular.module('myApp.quiz', ['ngRoute'])
 
         $scope.goShop = function() {
             $mdDialog.show({
-                controller: function() {}
+                controller: function($scope) {
+                    $scope.hide = function() { $mdDialog.hide() }
+
+                    $scope.comprar = function(id) {
+
+                    }
+                },
+                clickOutsideToClose: true,
+                template: `<div style="height: 300px" class="flex-row">
+                    <md-card>
+                        <md-card-title>
+                            <md-card-title-text>
+                                Carta
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <md-button>Comprar (R$0,50)</md-button>
+                        </md-card-actions>
+                    </md-card>
+                    <md-card>
+                        <md-card-title>
+                            <md-card-title-text>
+                                Pulo
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <md-button>Comprar (R$0,50)</md-button>
+                      </md-card-actions>
+                    </md-card>
+                    <md-card>
+                        <md-card-title>
+                            <md-card-title-text>
+                                Opinião Pública
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <md-button>Comprar (R$0,50)</md-button>
+                        </md-card-actions>
+                    </md-card>
+                </div>`
             })
         }
 
